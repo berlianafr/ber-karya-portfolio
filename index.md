@@ -38,8 +38,8 @@ title: Berliana Fadlilatur Rahmah
 
 
   /* ---------- Contact links ---------- */
-  .contact-row { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin: 0.5rem 0 1.2rem; }
-  .contact-row a { text-decoration: none; font-weight: 500; }
+  .contact-row { display: flex; flex-wrap: nowrap; gap: 1rem; margin: 0.5rem 0 1.2rem; font-size: clamp(0.62rem, 1.9vw, 0.85rem); }
+  .contact-row a { text-decoration: none; font-weight: 500; white-space: nowrap; border: 0; padding: 0; }
   .contact-row a::after { content: "\2197"; margin-left: 0.3rem; }
   .contact-row a:hover,
   .contact-row a:focus-visible { text-decoration: underline; }
