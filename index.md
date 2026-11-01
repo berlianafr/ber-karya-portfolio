@@ -1,260 +1,244 @@
----
-layout: default
-title: Berliana Fadlilatur Rahmah
----
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berliana Fadlilatur Rahmah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ---------- Dropdown sections ---------- */
-  details.section {
-    border-top: 1px solid #d8d8d8;
-    padding: 0.4rem 0;
-  }
-  details.section:last-of-type { border-bottom: 1px solid #d8d8d8; }
-
-  details.section > summary {
-    cursor: pointer;
-    list-style: none;
-    font-size: 1.35rem;
-    font-weight: 600;
-    padding: 0.6rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  details.section > summary::-webkit-details-marker { display: none; }
-  details.section > summary::after {
-    content: "";
-    width: 0.55rem;
-    height: 0.55rem;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);          /* points down when closed */
-    margin-right: 0.3rem;
-    transition: transform 0.2s ease;
-  }
-  details.section[open] > summary::after { transform: rotate(-135deg); }  /* flips up when open */
-  details.section > summary:focus-visible { outline: 2px solid #2b5fd9; outline-offset: 2px; }
-  .section-body { padding: 0.5rem 0 1.2rem; }
-
-
-  /* ---------- Contact links ---------- */
-  .contact-row { display: flex; flex-wrap: nowrap; gap: 1rem; margin: 0.5rem 0 1.2rem; font-size: clamp(0.62rem, 1.9vw, 0.85rem); }
-  .contact-row a { text-decoration: none; font-weight: 500; white-space: nowrap; border: 0; padding: 0; }
-  .contact-row a::after { content: "\2197"; margin-left: 0.3rem; }
-  .contact-row a:hover,
-  .contact-row a:focus-visible { text-decoration: underline; }
-
-  /* ---------- Project cards ---------- */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-  a.project-card {
-    display: block;
-    padding: 1.1rem 1.2rem;
-    border: 1px solid #d8d8d8;
-    border-radius: 10px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.15s ease, transform 0.15s ease;
-  }
-  a.project-card:hover,
-  a.project-card:focus-visible {
-    border-color: #2b5fd9;
-    transform: translateY(-2px);
-  }
-  .project-card h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
-  .project-card .meta { font-size: 0.85rem; color: #666; margin: 0 0 0.6rem; }
-  .project-card p { margin: 0; font-size: 0.95rem; }
-
-  @media (prefers-reduced-motion: reduce) {
-    details.section > summary::after,
-    a.project-card { transition: none; }
-  }
+:root{--bg:#eef4f5;--ink:#17313b;--mute:#5d7580;--tide:#4f8f9f;--line:rgba(23,49,59,.14);--ease:cubic-bezier(.22,.8,.26,1)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 Figtree,system-ui,sans-serif;overflow:hidden}
+a{color:inherit}
+h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;font-weight:300;font-variation-settings:"SOFT" 100;letter-spacing:-.02em}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;animation:drift 24s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:46vmax;height:46vmax;background:#cde3e8;left:-12vmax;top:-12vmax}
+.bg i:nth-child(2){width:38vmax;height:38vmax;background:#ddd8f3;right:-10vmax;top:22vh;animation-delay:-8s}
+.bg i:nth-child(3){width:34vmax;height:34vmax;background:#f6e4de;left:28vw;bottom:-18vmax;animation-delay:-15s}
+@keyframes drift{to{transform:translate(6vmax,-4vmax) scale(1.12)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.5rem;background:linear-gradient(var(--bg),rgba(238,244,245,0));transition:transform .7s var(--ease),opacity .7s}
+body.intro nav{transform:translateY(-100%);opacity:0;pointer-events:none}
+.brand{font-size:1.25rem;text-decoration:none;white-space:nowrap}
+.links{position:relative;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none;padding-bottom:.5rem}
+.links a{text-decoration:none;font-size:.9rem;color:var(--mute);white-space:nowrap;transition:color .3s}
+.links a.on,.links a:hover{color:var(--ink)}
+#ink{position:absolute;left:0;bottom:0;height:2px;width:0;border-radius:2px;background:var(--tide);transition:transform .6s var(--ease),width .6s var(--ease),opacity .3s}
+.stage{position:fixed;inset:0;z-index:1}
+.page{position:absolute;inset:0;overflow-y:auto;display:none}
+.wrap{max-width:46rem;margin:0 auto;padding:6rem 1.5rem 4rem}
+#p-welcome{display:flex;align-items:center}
+#p-welcome .wrap{padding:2rem 1.5rem}
+.pic{width:84px;height:84px;border-radius:50%;object-fit:cover;margin-bottom:1.4rem}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.05;margin:0 0 1rem}
+h2{font-size:2rem;margin:0 0 1.5rem}
+.lead{font-size:1.15rem;color:var(--mute);max-width:32rem;margin:0 0 2rem}
+.btn{display:inline-block;padding:.85rem 1.8rem;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;transition:transform .4s var(--ease),background .3s}
+.btn:hover{background:var(--tide);transform:translateY(-2px)}
+.wave{position:absolute;left:0;right:0;bottom:0;width:100%;height:28vh;pointer-events:none}
+.contact{display:flex;gap:1rem;margin:0 0 2rem;font-size:clamp(.62rem,1.9vw,.85rem)}
+.contact a{text-decoration:none;white-space:nowrap;color:var(--mute)}
+.contact a::after{content:"\2197";margin-left:.3rem}
+.contact a:hover{color:var(--ink);text-decoration:underline}
+.sk p{margin:.6rem 0}
+.sk b{font-weight:600}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:.5rem;height:.5rem;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .35s var(--ease)}
+details[open]>summary::after{transform:rotate(-135deg)}
+summary small{display:block;font-weight:400;color:var(--mute)}
+details ul{margin:0 0 1.2rem;padding-left:1.1rem}
+details li{margin:.35rem 0}
+.card{display:block;padding:1.5rem;border-radius:24px;background:rgba(255,255,255,.55);border:1px solid var(--line);backdrop-filter:blur(8px);text-decoration:none;transition:transform .4s var(--ease),border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--tide)}
+.card h3{font-size:1.4rem;margin:0 0 .4rem}
+.card p{margin:.3rem 0;color:var(--mute)}
+.back{display:inline-block;margin-bottom:1.5rem;color:var(--mute);text-decoration:none}
+.back:hover{color:var(--ink)}
+h3.s{font-size:1.25rem;margin:1.6rem 0 .3rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+</head>
+<body class="intro">
+<div class="bg"><i></i><i></i><i></i></div>
 
+<nav>
+  <a class="brand" href="#/home">Berliana</a>
+  <div class="links">
+    <a href="#/home" data-n="home">Home</a>
+    <a href="#/experience" data-n="experience">Experience</a>
+    <a href="#/projects" data-n="projects">Projects</a>
+    <a href="#/research" data-n="research">Research</a>
+    <a href="#/education" data-n="education">Education</a>
+    <a href="#/certifications" data-n="certifications">Certifications</a>
+    <span id="ink"></span>
+  </div>
+</nav>
 
-# Data Analyst | Machine Learning | Operations & Risk Analytics
+<main class="stage">
 
-<div class="contact-row">
-  <a href="mailto:berlianafr@gmail.com">berlianafr@gmail.com</a>
-  <a href="https://www.linkedin.com/in/berlianafr9" target="_blank" rel="noopener">linkedin.com/in/berlianafr9</a>
-  <a href="https://github.com/berlianafr" target="_blank" rel="noopener">github.com/berlianafr</a>
-</div>
+<section class="page" id="p-welcome">
+  <svg class="wave" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 160C240 60 420 260 720 170S1200 70 1440 150V300H0Z" fill="#cde3e8" opacity=".55"/>
+    <path d="M0 220C260 140 500 290 780 215S1220 150 1440 230V300H0Z" fill="#ddd8f3" opacity=".6"/>
+  </svg>
+  <div class="wrap" style="position:relative">
+    <img class="pic" src="assets/img/profpic.png" alt="" onerror="this.remove()">
+    <h1>Hi, I'm Berliana.</h1>
+    <p class="lead">I work with election, logistics, and risk data, and build tools that turn it into decisions.</p>
+    <a class="btn" href="#/home">Get to know me</a>
+  </div>
+</section>
 
-Data-driven professional with 4+ years of experience at Indonesia's General Election Commission (KPU), spanning internal audit, procurement, logistics, and election analytics. Experienced in building data-driven tools, automating reporting processes, analyzing operational risks, and applying machine learning to real-world business problems.
+<section class="page" id="p-home"><div class="wrap">
+  <h1>Data Analyst, Machine Learning, Operations &amp; Risk Analytics</h1>
+  <div class="contact">
+    <a href="mailto:berlianafr@gmail.com">berlianafr@gmail.com</a>
+    <a href="https://www.linkedin.com/in/berlianafr9" target="_blank" rel="noopener">linkedin.com/in/berlianafr9</a>
+    <a href="https://github.com/berlianafr" target="_blank" rel="noopener">github.com/berlianafr</a>
+  </div>
+  <p>Data-driven professional with 4+ years of experience at Indonesia's General Election Commission (KPU), spanning internal audit, procurement, logistics, and election analytics. I build data-driven tools, automate reporting, analyze operational risks, and apply machine learning to real-world business problems.</p>
+  <p>I combine Python, SQL, and data analytics with practical experience in operations, supply chain, procurement, and regulatory compliance.</p>
+  <h2 style="margin-top:2.5rem">Technical Skills</h2>
+  <div class="sk">
+    <p><b>Data Analytics &amp; Machine Learning:</b> Python, SQL, Microsoft Excel, Google Sheets, Google Colab, Scikit-learn, XGBoost, LightGBM, SHAP, Google Apps Script</p>
+    <p><b>Data Processing &amp; Automation:</b> Data Cleaning, Data Validation, Data Analysis, Workflow Automation, Reporting Automation</p>
+    <p><b>Operations &amp; Supply Chain:</b> Logistics Monitoring, Supply Chain Risk Management, Procurement Planning, Budget Estimation, Cost Analysis, Vendor Evaluation</p>
+    <p><b>Audit &amp; Risk Management:</b> Internal Control Assessment, Risk Assessment, Regulatory Compliance, Financial Reconciliation, Transaction Vouching, Audit Documentation</p>
+    <p><b>Systems Analysis &amp; Design:</b> UML Modeling, Business Requirements Analysis, Workflow and Process Modeling</p>
+  </div>
+</div></section>
 
-Combines technical capabilities in Python, SQL, and data analytics with practical experience in operations, supply chain, procurement, and regulatory compliance.
+<section class="page" id="p-experience"><div class="wrap">
+  <h2>Experience</h2>
+  <details open><summary><span>Election Technical Affairs Officer, KPU East Java<small>April 2026 to present</small></span></summary><ul>
+    <li>Analyzed East Java voter data to determine electoral district (dapil) requirements and support district design simulations.</li>
+    <li>Developed a dynamic seat-allocation tool using the Sainte-Laguë method for 18 political parties across 11 DPR and 14 provincial DPRD districts, cutting processing time from days to hours.</li>
+    <li>Administered legislative replacement (PAW) processes for the East Java Provincial DPRD and monitored progress across 38 regencies/cities.</li>
+    <li>Facilitated electoral discussions with administrators, academics, and other stakeholders.</li></ul></details>
+  <details><summary><span>Logistics Monitoring and Evaluation Officer, KPU Logistics Bureau, Jakarta<small>July 2024 to April 2026</small></span></summary><ul>
+    <li>Compiled and analyzed logistics data from 552 work units (38 provinces and 514 regencies/cities) for nationwide consolidated reporting.</li>
+    <li>Designed a centralized logistics monitoring system with standardized formats and input validation, replacing inconsistent manual Excel files.</li>
+    <li>Mapped supply chain risks across 5 zones and 20 risk categories, identifying the top 4 risks per zone and nationally with zone-specific mitigation recommendations.</li>
+    <li>Contributed to the initial 2029 Election Logistics Roadmap by defining business processes, outputs, steps, and deadlines.</li></ul></details>
+  <details><summary><span>Procurement Officer, KPU Logistics Bureau, Jakarta<small>July 2023 to July 2024</small></span></summary><ul>
+    <li>Planned nationwide logistics procurement for the 2024 General Election: 204.8 million registered voters, 820,161 polling stations, 10 logistics categories.</li>
+    <li>Contributed to regional zoning and centralized procurement with LKPP, supporting efficiency of approximately Rp381 billion.</li>
+    <li>Conducted nationwide market price surveys and prepared Estimated Costs (HPS) for designated zones.</li>
+    <li>Monitored production of approximately 1.2 billion ballot sheets for compliance with specifications and quality requirements.</li></ul></details>
+  <details><summary><span>Internal Auditor, KPU, Jakarta<small>January 2022 to July 2023</small></span></summary><ul>
+    <li>Reviewed semiannual financial statements and reconciled cash balances and imprest funds.</li>
+    <li>Advised regional work units on financial management, regulatory compliance, and internal controls.</li>
+    <li>Supported development of risk management regulation PKPU No. 8 of 2023 through research, stakeholder discussions, and socialization materials.</li></ul></details>
+  <details><summary><span>Audit Intern, AR Utomo Public Accounting Firms, Surabaya<small>September 2021</small></span></summary><ul>
+    <li>Prepared audit working papers and performed transaction vouching and reconciliation to identify discrepancies.</li></ul></details>
+  <details><summary><span>Student Intern, Directorate General of Taxes<small>March to June 2021</small></span></summary><ul>
+    <li>Supported tax audits by reviewing financial records, preparing working papers, and reconciling ledger and bank data in Excel.</li>
+    <li>Evaluated audit quality assurance procedures against SOPs and recommended process improvements.</li></ul></details>
+</div></section>
 
----
-
-## Technical Skills
-
-**Data Analytics & Machine Learning:** Python, SQL, Microsoft Excel, Google Sheets, Google Colab, Scikit-learn, XGBoost, LightGBM, SHAP, Google Apps Script
-
-**Data Processing & Automation:** Data Cleaning, Data Validation, Data Analysis, Workflow Automation, Reporting Automation
-
-**Operations & Supply Chain:** Logistics Monitoring, Supply Chain Risk Management, Procurement Planning, Budget Estimation, Cost Analysis, Vendor Evaluation
-
-**Audit & Risk Management:** Internal Control Assessment, Risk Assessment, Regulatory Compliance, Financial Reconciliation, Transaction Vouching, Audit Documentation
-
-**Systems Analysis & Design:** UML Modeling, Business Requirements Analysis, Workflow and Process Modeling
-
----
-
-<!-- NOTE: markdown="1" is required so kramdown renders markdown inside HTML blocks -->
-
-<details class="section" markdown="1">
-<summary>Professional Experience</summary>
-<div class="section-body" markdown="1">
-
-**Election Technical Affairs Officer @ General Election Commission (KPU), East Java Province**
-_April 2026 – Present_
-
-- Analyzed East Java voter data to determine electoral district (dapil) requirements and support legislative election district design simulations.
-- Developed a dynamic seat-allocation tool using the Sainte-Laguë method to simulate 18 political parties across 11 DPR and 14 provincial DPRD electoral districts, reducing processing time from days to hours.
-- Facilitated electoral discussions involving election administrators, academics, and other stakeholders.
-- Administered legislative replacement (PAW) processes for the East Java Provincial DPRD and monitored progress across 38 regencies/cities.
-- Verified periodic political party data updates and prepared supporting administrative documentation.
-
-**Logistics Monitoring and Evaluation Officer @ General Election Commission (KPU)**
-_Logistics Bureau, Jakarta, Indonesia \| July 2024 – April 2026_
-
-- Compiled and analyzed election logistics data from 552 work units (38 provinces and 514 regencies/cities) to support nationwide consolidated reporting.
-- Designed and maintained a centralized logistics monitoring system with standardized formats and input validation, replacing inconsistent manual Excel files and improving data consolidation and reporting.
-- Evaluated operational challenges reported by regional work units and monitored 38 provincial procurement teams during regional election logistics procurement.
-- Mapped supply chain risks across 5 geographic zones and 20 risk categories, identifying the top 4 risks per zone and nationally and developing zone-specific mitigation recommendations.
-- Supported operational risk monitoring and mitigation planning within the Logistics Bureau.
-- Contributed to the initial development of the 2029 Election Logistics Roadmap by defining business processes, expected outputs, implementation steps, and estimated deadlines.
-
-**Procurement Officer @ General Election Commission (KPU)**
-_Logistics Bureau, Jakarta, Indonesia \| July 2023 – July 2024_
-
-- Planned nationwide logistics procurement for the 2024 General Election, covering 204.8 million registered voters and 820,161 polling stations across 10 logistics categories.
-- Forecasted procurement quantities, estimated budgets, and established procurement timelines across two procurement phases.
-- Contributed to nationwide procurement strategies through regional zoning and centralized procurement with LKPP, supporting procurement efficiency of approximately Rp381 billion.
-- Conducted nationwide market price surveys and prepared Estimated Costs (HPS) for designated procurement zones.
-- Processed tender data, evaluated bids, and verified vendor documentation and qualifications against procurement regulations.
-- Monitored the production of approximately 1.2 billion ballot sheets to ensure compliance with procurement specifications and quality requirements.
-- Prepared procurement documentation for internal audit reviews, including HPS reviews and procurement probity audits.
-
-**Internal Auditor @ General Election Commission (KPU)**
-_Jakarta, Indonesia \| January 2022 – July 2023_
-
-- Reviewed semiannual financial statements and reconciled cash balances and imprest funds to ensure financial accuracy and accountability.
-- Provided advisory support to regional government work units on financial management, regulatory compliance, and internal controls.
-- Supported the development of risk management regulation (PKPU No. 8 of 2023) through stakeholder discussions, regulatory research, and preparation of socialization materials.
-- Monitored risk management and internal control implementation across government work units nationwide.
-- Reviewed corrective actions in response to previous audit findings and recommendations.
-- Conducted compliance clarifications related to special-purpose audit findings (PDTT).
-
-**Audit Intern @ AR Utomo Public Accounting Firms**
-_Surabaya, Indonesia \| September 2021_
-
-- Prepared audit working papers by entering information from auditee-provided source documents.
-- Performed transaction vouching and reconciliation to identify discrepancies and inconsistencies.
-
-**Student Intern @ Directorate General of Taxes, Ministry of Finance**
-_Audit, Collection, Intelligence & Investigation Division \| March 2021 – June 2021_
-
-- Analyzed tax collection and bankruptcy cases involving outstanding tax liabilities and potential compliance risks.
-- Supported tax audits by reviewing financial records, preparing audit working papers, and reconciling ledger and bank transaction data using Excel.
-- Evaluated tax audit Quality Assurance (QA) procedures, identified gaps between implementation and established SOPs, and recommended process improvements.
-- Prepared tax-related correspondence and archived official documents and audit reports.
-
-</div>
-</details>
-
-<details class="section" markdown="1">
-<summary>Projects</summary>
-<div class="section-body" markdown="0">
-
-<div class="card-grid">
-
-  <a class="project-card" href="{{ '/projects/seat/' | relative_url }}">
+<section class="page" id="p-projects"><div class="wrap">
+  <h2>Projects</h2>
+  <a class="card" href="#/seat">
     <h3>SEAT: Seat Allocation &amp; Electoral Candidate Selection</h3>
-    <p class="meta">Personal project, ongoing &middot; Google Apps Script, Google Sheets, Gemini API</p>
-    <p>Turns scanned election result forms (Formulir D Hasil) into seat allocations and elected-candidate lists. AI extracts, humans verify, the system calculates.</p>
+    <p>Google Apps Script, Google Sheets, Gemini API</p>
+    <p>Turns scanned election result forms into seat allocations and elected-candidate lists. AI extracts, humans verify, the system calculates.</p>
   </a>
+</div></section>
 
-  <!-- Add more cards by copying the block above and changing href, title, and text -->
+<section class="page" id="p-seat"><div class="wrap">
+  <a class="back" href="#/projects">Back to projects</a>
+  <h2>SEAT: Seat Allocation &amp; Electoral Candidate Selection</h2>
+  <p>Personal project, ongoing. Google Apps Script, Google Sheets, Gemini API.</p>
+  <h3 class="s">Problem</h3>
+  <p>Seat allocation from scanned election result forms (Formulir D Hasil) was slow, manual work.</p>
+  <h3 class="s">Solution</h3>
+  <p>An end-to-end tool that turns the scanned PDFs into parliamentary seat allocations and elected-candidate lists. The Gemini API extracts vote counts, users verify them, then the Sainte-Laguë method and candidate selection run automatically.</p>
+  <h3 class="s">Outcome</h3>
+  <p>Processing time dropped from days to hours, with centralized Google Drive exports and per-user calculation history.</p>
+  <details style="margin-top:1.5rem"><summary>How I built it</summary><ul>
+    <li>Human-in-the-loop workflow: users verify extracted data before any calculation.</li>
+    <li>Three rounds of testing added API error handling, retry, and a manual data-entry fallback.</li></ul></details>
+</div></section>
 
-</div>
+<section class="page" id="p-research"><div class="wrap">
+  <h2>Research &amp; Publications</h2>
+  <h3 class="s" style="margin-top:0">Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company</h3>
+  <p>The 2nd International Conference on Artificial Intelligence for Learning and Optimization (ICoAILO 2026), October 2026, paper presenter. To be published in Scopus-indexed conference proceedings.</p>
+  <ul>
+    <li>Compared Logistic Regression, Decision Tree, Random Forest, XGBoost, and LightGBM on 578 corporate loan records with 17 scorecard features and an NPL rate of 8.7%.</li>
+    <li>Handled class imbalance with stratified 5-fold cross-validation, class weights, and threshold tuning.</li>
+    <li>Selected the model by misclassification cost, since a missed bad loan costs about 4.5 times more than a false alarm. XGBoost performed best.</li>
+    <li>SHAP showed year-over-year revenue growth, payor type, and past-due receivables as top risk drivers. Financial factors made up 53% of model importance despite 20% of the original scorecard weight.</li>
+  </ul>
+  <p><a href="https://zenodo.org/records/23138626" target="_blank" rel="noopener">Code and processed dataset on Zenodo</a></p>
+</div></section>
 
-</div>
-</details>
+<section class="page" id="p-education"><div class="wrap">
+  <h2>Education</h2>
+  <details open><summary><span>Bina Nusantara University (BINUS), B.Comp.Sc. Information Systems<small>August 2024 to October 2026, RPL (Diploma-to-Bachelor) program</small></span></summary><ul>
+    <li>Focus: data analytics and machine learning, systems analysis and design, UML modeling, business requirements analysis, project management.</li>
+    <li>Thesis: Non-Performing Loan (NPL) prediction using machine learning, comparing five models on real corporate loan data and selecting the best by misclassification cost.</li></ul></details>
+  <details><summary><span>Polytechnic of State Finance STAN, A.Md.Ak. Accounting<small>September 2018 to October 2021</small></span></summary><ul>
+    <li>Focus: financial accounting, government accounting and compliance, cost accounting, product pricing, auditing.</li>
+    <li>Final project: cost of production analysis at a bakery, applying process costing and recommending improvements to cost classification, recordkeeping, and pricing.</li></ul></details>
+</div></section>
 
-<details class="section" markdown="1">
-<summary>Research &amp; Publications</summary>
-<div class="section-body" markdown="1">
+<section class="page" id="p-certifications"><div class="wrap">
+  <h2>Licenses &amp; Certifications</h2>
+  <ul>
+    <li><b>Supervised Machine Learning: Regression and Classification</b>, DeepLearning.AI, Stanford University (February 2026)</li>
+    <li><b>Certified Skilled Auditor</b>, BPKP (June 2024)</li>
+    <li><b>Government Procurement Certification</b>, LKPP (April 2024)</li>
+    <li><b>Certified Associate in Python Programming (PCAP)</b>, Python Institute (November 2021)</li>
+  </ul>
+</div></section>
 
-### Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company
+</main>
 
-**The 2nd International Conference on Artificial Intelligence for Learning and Optimization (ICoAILO 2026)**
-_October 2026 \| Paper Presenter_
-
-Presented research investigating machine learning approaches for predicting non-performing loans (NPL) using real corporate loan data from an Indonesian peer-to-peer lending company.
-
-- Compared five machine learning models: Logistic Regression, Decision Tree, Random Forest, XGBoost, and LightGBM.
-- Analyzed 578 corporate loan records with 17 scorecard features, including an NPL rate of 8.7%.
-- Addressed class imbalance using stratified 5-fold cross-validation, class weights, and threshold tuning.
-- Selected the best-performing model using misclassification cost, considering that a missed bad loan costs approximately 4.5 times more than a false alarm.
-- Identified XGBoost as the best-performing model.
-- Applied SHAP for model interpretability, identifying year-over-year revenue growth, payor type, and past-due receivables as the top risk drivers.
-- Found that financial factors contributed 53% of model importance despite accounting for only 20% of the original scorecard weight.
-
-**Publication:** To be published in Scopus-indexed conference proceedings.
-
-**Reproducibility:** [Code and Processed Dataset – Zenodo](https://zenodo.org/records/23138626)
-
-</div>
-</details>
-
-<details class="section" markdown="1">
-<summary>Education</summary>
-<div class="section-body" markdown="1">
-
-**Bina Nusantara University (BINUS)**
-_Bachelor of Computer Science (S.Kom.) in Information Systems \| August 2024 – October 2026_
-
-RPL Program (Diploma-to-Bachelor pathway).
-
-Specialized in:
-- Data Analytics and Machine Learning
-- Systems Analysis and Design
-- UML Modeling and Business Requirements Analysis
-- Project Management
-
-**Undergraduate Thesis:** Non-Performing Loan (NPL) Prediction Using Machine Learning.
-
-Compared five machine learning models using real corporate loan data, selecting the best model based on misclassification cost.
-
-**Polytechnic of State Finance STAN (PKN STAN)**
-_Associate Degree in Accounting (A.Md.Ak.) \| September 2018 – October 2021_
-
-Specialized in:
-- Financial Accounting
-- Government Accounting and Compliance
-- Cost Accounting
-- Product Pricing
-- Auditing
-
-**Final Project:** Cost of Production Analysis at Bakery.
-
-Applied process costing to analyze production costs and evaluate cost accounting practices, recommending improvements to cost classification, financial recordkeeping, and product pricing.
-
-</div>
-</details>
-
-<details class="section" markdown="1">
-<summary>Licenses &amp; Certifications</summary>
-<div class="section-body" markdown="1">
-
-- **Supervised Machine Learning: Regression and Classification** – DeepLearning.AI, Stanford University (February 2026)
-- **Certified Skilled Auditor** – Financial and Development Supervisory Agency (BPKP) (June 2024)
-- **Government Procurement Certification** – National Public Procurement Agency (LKPP) (April 2024)
-- **Certified Associate in Python Programming (PCAP)** – Python Institute (November 2021)
-
-</div>
-</details>
+<script>
+const order=['home','experience','projects','seat','research','education','certifications'];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let cur=null;
+const $=s=>document.querySelector(s);
+function ink(){
+  const a=$('.links a.on'),i=$('#ink');
+  if(!a){i.style.opacity=0;return}
+  i.style.opacity=1;i.style.width=a.offsetWidth+'px';i.style.transform='translateX('+a.offsetLeft+'px)';
+  a.scrollIntoView({inline:'center',block:'nearest'});
+}
+function go(id){
+  if(id===cur)return;
+  const el=$('#p-'+id),old=cur&&$('#p-'+cur),prev=cur;
+  const vertical=id==='welcome'||prev==='welcome';
+  const d=prev===null?0:vertical?(id==='welcome'?-1:1):Math.sign(order.indexOf(id)-order.indexOf(prev));
+  const t=v=>vertical?'translateY('+v*60+'px)':'translateX('+v*80+'px)';
+  document.body.classList.toggle('intro',id==='welcome');
+  el.style.display=id==='welcome'?'flex':'block';el.scrollTop=0;
+  const o={duration:reduce?0:750,easing:'cubic-bezier(.22,.8,.26,1)'};
+  if(old){
+    if(!reduce){
+      el.animate([{opacity:0,transform:t(d)},{opacity:1,transform:'none'}],o);
+      old.animate([{opacity:1,transform:'none'},{opacity:0,transform:t(-d)}],o).onfinish=()=>{if(cur!==prev)old.style.display='none'};
+    }else old.style.display='none';
+  }
+  cur=id;
+  const n=id==='seat'?'projects':id;
+  document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.dataset.n===n));
+  ink();
+}
+function route(){
+  const id=location.hash.replace(/^#\/?/,'')||'welcome';
+  go(document.getElementById('p-'+id)?id:'welcome');
+}
+addEventListener('hashchange',route);
+addEventListener('resize',ink);
+document.fonts&&document.fonts.ready.then(ink);
+route();
+</script>
+</body>
+</html>
