@@ -4,3 +4,5 @@ show_downloads: true
 theme: jekyll-theme-minimal
 baseurl: "/ber-karya-portfolio"
 url: "https://berlianafr.github.io"
+exclude:
+  - README.md
