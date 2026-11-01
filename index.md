@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Berliana Fadlilatur Rahmah</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +10,7 @@
 <style>
 :root{--bg:#eef4f5;--ink:#17313b;--mute:#5d7580;--tide:#4f8f9f;--line:rgba(23,49,59,.14);--ease:cubic-bezier(.22,.8,.26,1)}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 Figtree,system-ui,sans-serif;overflow:hidden}
+html,body{height:100%;height:100dvh;margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 Figtree,system-ui,sans-serif;overflow:hidden}
 a{color:inherit}
 h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;font-weight:300;font-variation-settings:"SOFT" 100;letter-spacing:-.02em}
 .bg{position:fixed;inset:0;z-index:0;overflow:hidden}
@@ -19,11 +19,11 @@ h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;font-weight:300;font-variatio
 .bg i:nth-child(2){width:38vmax;height:38vmax;background:#ddd8f3;right:-10vmax;top:22vh;animation-delay:-8s}
 .bg i:nth-child(3){width:34vmax;height:34vmax;background:#f6e4de;left:28vw;bottom:-18vmax;animation-delay:-15s}
 @keyframes drift{to{transform:translate(6vmax,-4vmax) scale(1.12)}}
-nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.5rem;background:linear-gradient(var(--bg),rgba(238,244,245,0));transition:transform .7s var(--ease),opacity .7s}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:max(1rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) .6rem max(1.5rem,env(safe-area-inset-left));background:linear-gradient(var(--bg),rgba(238,244,245,0));transition:transform .7s var(--ease),opacity .7s}
 body.intro nav{transform:translateY(-100%);opacity:0;pointer-events:none}
 .brand{font-size:1.25rem;text-decoration:none;white-space:nowrap}
 .links{position:relative;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none;padding-bottom:.5rem}
-.links a{text-decoration:none;font-size:.9rem;color:var(--mute);white-space:nowrap;transition:color .3s}
+.links a{padding:.3rem 0;text-decoration:none;font-size:.9rem;color:var(--mute);white-space:nowrap;transition:color .3s}
 .links a.on,.links a:hover{color:var(--ink)}
 #ink{position:absolute;left:0;bottom:0;height:2px;width:0;border-radius:2px;background:var(--tide);transition:transform .6s var(--ease),width .6s var(--ease),opacity .3s}
 .stage{position:fixed;inset:0;z-index:1}
@@ -33,7 +33,8 @@ body.intro nav{transform:translateY(-100%);opacity:0;pointer-events:none}
 #p-welcome .wrap{padding:2rem 1.5rem}
 .pic{width:84px;height:84px;border-radius:50%;object-fit:cover;margin-bottom:1.4rem}
 h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.05;margin:0 0 1rem}
-h2{font-size:2rem;margin:0 0 1.5rem}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 1.5rem}
+#p-home h1{font-size:clamp(1.9rem,5vw,3rem)}
 .lead{font-size:1.15rem;color:var(--mute);max-width:32rem;margin:0 0 2rem}
 .btn{display:inline-block;padding:.85rem 1.8rem;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;transition:transform .4s var(--ease),background .3s}
 .btn:hover{background:var(--tide);transform:translateY(-2px)}
@@ -60,6 +61,34 @@ details li{margin:.35rem 0}
 .back{display:inline-block;margin-bottom:1.5rem;color:var(--mute);text-decoration:none}
 .back:hover{color:var(--ink)}
 h3.s{font-size:1.25rem;margin:1.6rem 0 .3rem}
+@media(min-width:640px) and (max-width:1023px){
+  .wrap{max-width:42rem;padding:6.5rem 2rem 4rem}
+  nav{padding-left:2rem;padding-right:2rem}
+}
+@media(min-width:1024px){
+  html,body{font-size:1.0625rem}
+  nav{padding:1.4rem 3.5rem .8rem}
+  .links{gap:2rem}
+  .wrap{max-width:54rem;padding:7.5rem 2rem 5rem}
+  #p-welcome .wrap{max-width:62rem;padding:2rem 3rem}
+  .pic{width:112px;height:112px}
+  .card:hover,.btn:hover{transform:translateY(-4px)}
+}
+@media(max-width:639px){
+  nav{flex-direction:column;align-items:flex-start;gap:.2rem}
+  .links{width:100%;gap:1.2rem}
+  .wrap{padding:7.2rem 1.25rem 3rem}
+  #p-welcome .wrap{padding:2rem 1.25rem}
+  .btn{display:block;text-align:center}
+  .contact{flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.8rem}
+  .card{padding:1.2rem;border-radius:20px}
+  .wave{height:20vh}
+  summary{align-items:flex-start}
+}
+@media(max-height:480px) and (orientation:landscape){
+  h1{font-size:2rem}.lead{margin-bottom:1rem}.pic{width:56px;height:56px;margin-bottom:.6rem}
+}
+@media(hover:none){.btn:hover,.card:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
