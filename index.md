@@ -38,18 +38,11 @@ title: Berliana Fadlilatur Rahmah
 
 
   /* ---------- Contact links ---------- */
-  .contact-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 1.2rem; }
-  .contact-row a {
-    padding: 0.35rem 0.9rem;
-    border: 1px solid #d8d8d8;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: border-color 0.15s ease;
-  }
-  .contact-row a::after { content: "\2197"; margin-left: 0.4rem; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin: 0.5rem 0 1.2rem; }
+  .contact-row a { text-decoration: none; font-weight: 500; }
+  .contact-row a::after { content: "\2197"; margin-left: 0.3rem; }
   .contact-row a:hover,
-  .contact-row a:focus-visible { border-color: #2b5fd9; }
+  .contact-row a:focus-visible { text-decoration: underline; }
 
   /* ---------- Project cards ---------- */
   .card-grid {
@@ -77,7 +70,6 @@ title: Berliana Fadlilatur Rahmah
 
   @media (prefers-reduced-motion: reduce) {
     details.section > summary::after,
-    .contact-row a,
     a.project-card { transition: none; }
   }
 </style>
