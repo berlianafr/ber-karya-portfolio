@@ -1,13 +1,19 @@
+title: Berliana Fadlilatur Rahmah
+logo: "/assets/img/profpic.png"
+show_downloads: false
+theme: jekyll-theme-minimal
+baseurl: "/ber-karya-portfolio"
+url: "https://berlianafr.github.io"
+exclude:
+  - README.md
+
+# Read by _layouts/default.html and shown under the profile picture
 author:
-  name   : "Berliana Fadlilatur Rahmah"
-  avatar : "/assets/images/your-existing-photo.jpg"   # keep what you already have
+  name: "Berliana Fadlilatur Rahmah"
   links:
     - label: "Email"
-      icon: "fas fa-fw fa-envelope"
       url: "mailto:berlianafr@gmail.com"
     - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/berlianafr9"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
       url: "https://github.com/berlianafr"
