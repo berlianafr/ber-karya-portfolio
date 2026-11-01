@@ -1,0 +1,4 @@
+url: "https://berlianafr.github.io"
+baseurl: "/ber-karya-portfolio"
+exclude:
+  - README.md
