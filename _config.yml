@@ -6,14 +6,3 @@ baseurl: "/ber-karya-portfolio"
 url: "https://berlianafr.github.io"
 exclude:
   - README.md
-
-# Read by _layouts/default.html and shown under the profile picture
-author:
-  name: "Berliana Fadlilatur Rahmah"
-  links:
-    - label: "Email"
-      url: "mailto:berlianafr@gmail.com"
-    - label: "LinkedIn"
-      url: "https://www.linkedin.com/in/berlianafr9"
-    - label: "GitHub"
-      url: "https://github.com/berlianafr"
