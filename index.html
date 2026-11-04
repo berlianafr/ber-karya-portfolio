@@ -7,90 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#eef4f5;--ink:#17313b;--mute:#5d7580;--tide:#4f8f9f;--line:rgba(23,49,59,.14);--ease:cubic-bezier(.22,.8,.26,1)}
-*{box-sizing:border-box}
-html,body{height:100%;height:100dvh;margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.7 Figtree,system-ui,sans-serif;overflow:hidden}
-a{color:inherit}
-h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;font-weight:300;font-variation-settings:"SOFT" 100;letter-spacing:-.02em}
-.bg{position:fixed;inset:0;z-index:0;overflow:hidden}
-.bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;animation:drift 24s ease-in-out infinite alternate}
-.bg i:nth-child(1){width:46vmax;height:46vmax;background:#cde3e8;left:-12vmax;top:-12vmax}
-.bg i:nth-child(2){width:38vmax;height:38vmax;background:#ddd8f3;right:-10vmax;top:22vh;animation-delay:-8s}
-.bg i:nth-child(3){width:34vmax;height:34vmax;background:#f6e4de;left:28vw;bottom:-18vmax;animation-delay:-15s}
-@keyframes drift{to{transform:translate(6vmax,-4vmax) scale(1.12)}}
-nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:max(1rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) .6rem max(1.5rem,env(safe-area-inset-left));background:linear-gradient(var(--bg),rgba(238,244,245,0));transition:transform .7s var(--ease),opacity .7s}
-body.intro nav{transform:translateY(-100%);opacity:0;pointer-events:none}
-.brand{font-size:1.25rem;text-decoration:none;white-space:nowrap}
-.links{position:relative;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none;padding-bottom:.5rem}
-.links a{padding:.3rem 0;text-decoration:none;font-size:.9rem;color:var(--mute);white-space:nowrap;transition:color .3s}
-.links a.on,.links a:hover{color:var(--ink)}
-#ink{position:absolute;left:0;bottom:0;height:2px;width:0;border-radius:2px;background:var(--tide);transition:transform .6s var(--ease),width .6s var(--ease),opacity .3s}
-.stage{position:fixed;inset:0;z-index:1}
-.page{position:absolute;inset:0;overflow-y:auto;display:none}
-.wrap{max-width:46rem;margin:0 auto;padding:6rem 1.5rem 4rem}
-#p-welcome{align-items:center}
-#p-welcome .wrap{padding:2rem 1.5rem}
-.pic{width:84px;height:84px;border-radius:50%;object-fit:cover;margin-bottom:1.4rem}
-h1{font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.05;margin:0 0 1rem}
-h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 1.5rem}
-#p-home h1{font-size:clamp(1.9rem,5vw,3rem)}
-.lead{font-size:1.15rem;color:var(--mute);max-width:32rem;margin:0 0 2rem}
-.btn{display:inline-block;padding:.85rem 1.8rem;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;transition:transform .4s var(--ease),background .3s}
-.btn:hover{background:var(--tide);transform:translateY(-2px)}
-.wave{position:absolute;left:0;right:0;bottom:0;width:100%;height:28vh;pointer-events:none}
-.contact{display:flex;gap:1rem;margin:0 0 2rem;font-size:clamp(.62rem,1.9vw,.85rem)}
-.contact a{text-decoration:none;white-space:nowrap;color:var(--mute)}
-.contact a::after{content:"\2197";margin-left:.3rem}
-.contact a:hover{color:var(--ink);text-decoration:underline}
-.sk p{margin:.6rem 0}
-.sk b{font-weight:600}
-details{border-top:1px solid var(--line)}
-details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;font-weight:500}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"";flex:none;width:.5rem;height:.5rem;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .35s var(--ease)}
-details[open]>summary::after{transform:rotate(-135deg)}
-summary small{display:block;font-weight:400;color:var(--mute)}
-details ul{margin:0 0 1.2rem;padding-left:1.1rem}
-details li{margin:.35rem 0}
-.card{display:block;padding:1.5rem;border-radius:24px;background:rgba(255,255,255,.55);border:1px solid var(--line);backdrop-filter:blur(8px);text-decoration:none;transition:transform .4s var(--ease),border-color .3s}
-.card:hover{transform:translateY(-4px);border-color:var(--tide)}
-.card h3{font-size:1.4rem;margin:0 0 .4rem}
-.card p{margin:.3rem 0;color:var(--mute)}
-.back{display:inline-block;margin-bottom:1.5rem;color:var(--mute);text-decoration:none}
-.back:hover{color:var(--ink)}
-h3.s{font-size:1.25rem;margin:1.6rem 0 .3rem}
-@media(min-width:640px) and (max-width:1023px){
-  .wrap{max-width:42rem;padding:6.5rem 2rem 4rem}
-  nav{padding-left:2rem;padding-right:2rem}
-}
-@media(min-width:1024px){
-  html,body{font-size:1.0625rem}
-  nav{padding:1.4rem 3.5rem .8rem}
-  .links{gap:2rem}
-  .wrap{max-width:54rem;padding:7.5rem 2rem 5rem}
-  #p-welcome .wrap{max-width:62rem;padding:2rem 3rem}
-  .pic{width:112px;height:112px}
-  .card:hover,.btn:hover{transform:translateY(-4px)}
-}
-@media(max-width:639px){
-  nav{flex-direction:column;align-items:flex-start;gap:.2rem}
-  .links{width:100%;gap:1.2rem}
-  .wrap{padding:7.2rem 1.25rem 3rem}
-  #p-welcome .wrap{padding:2rem 1.25rem}
-  .btn{display:block;text-align:center}
-  .contact{flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.8rem}
-  .card{padding:1.2rem;border-radius:20px}
-  .wave{height:20vh}
-  summary{align-items:flex-start}
-}
-@media(max-height:480px) and (orientation:landscape){
-  h1{font-size:2rem}.lead{margin-bottom:1rem}.pic{width:56px;height:56px;margin-bottom:.6rem}
-}
-@media(hover:none){.btn:hover,.card:hover{transform:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="intro">
 <div class="bg"><i></i><i></i><i></i></div>
@@ -172,26 +89,11 @@ h3.s{font-size:1.25rem;margin:1.6rem 0 .3rem}
 
 <section class="page" id="p-projects"><div class="wrap">
   <h2>Projects</h2>
-  <a class="card" href="#/seat">
+  <a class="card" href="projects/seat.html">
     <h3>SEAT: Seat Allocation &amp; Electoral Candidate Selection</h3>
-    <p>Google Apps Script, Google Sheets, Gemini API</p>
-    <p>Turns scanned election result forms into seat allocations and elected-candidate lists. AI extracts, humans verify, the system calculates.</p>
+    <p>Automation, Google Apps Script, Google Sheets, Gemini API</p>
+    <p>From votes to elected legislators, automated. AI extracts, humans verify, the system calculates.</p>
   </a>
-</div></section>
-
-<section class="page" id="p-seat"><div class="wrap">
-  <a class="back" href="#/projects">Back to projects</a>
-  <h2>SEAT: Seat Allocation &amp; Electoral Candidate Selection</h2>
-  <p>Personal project, ongoing. Google Apps Script, Google Sheets, Gemini API.</p>
-  <h3 class="s">Problem</h3>
-  <p>Seat allocation from scanned election result forms (Formulir D Hasil) was slow, manual work.</p>
-  <h3 class="s">Solution</h3>
-  <p>An end-to-end tool that turns the scanned PDFs into parliamentary seat allocations and elected-candidate lists. The Gemini API extracts vote counts, users verify them, then the Sainte-Laguë method and candidate selection run automatically.</p>
-  <h3 class="s">Outcome</h3>
-  <p>Processing time dropped from days to hours, with centralized Google Drive exports and per-user calculation history.</p>
-  <details style="margin-top:1.5rem"><summary>How I built it</summary><ul>
-    <li>Human-in-the-loop workflow: users verify extracted data before any calculation.</li>
-    <li>Three rounds of testing added API error handling, retry, and a manual data-entry fallback.</li></ul></details>
 </div></section>
 
 <section class="page" id="p-research"><div class="wrap">
@@ -230,7 +132,7 @@ h3.s{font-size:1.25rem;margin:1.6rem 0 .3rem}
 </main>
 
 <script>
-const order=['home','experience','projects','seat','research','education','certifications'];
+const order=['home','experience','projects','research','education','certifications'];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let cur=null;
 const $=s=>document.querySelector(s);
@@ -257,8 +159,7 @@ function go(id){
     }else old.style.display='none';
   }
   cur=id;
-  const n=id==='seat'?'projects':id;
-  document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.dataset.n===n));
+  document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.dataset.n===id));
   ink();
 }
 function route(){
