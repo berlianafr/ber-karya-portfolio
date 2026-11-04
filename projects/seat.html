@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SEAT: Seat Allocation &amp; Electoral Candidate Selection | Berliana Fadlilatur Rahmah</title>
+<meta name="description" content="SEAT automates seat allocation with the Sainte-Laguë method and elected candidate identification from Formulir D Hasil, using Google Apps Script, Google Sheets, and the Gemini API.">
+<meta property="og:title" content="SEAT: From Votes to Elected Legislators, Automated.">
+<meta property="og:description" content="AI extracts. Humans verify. The system calculates and generates.">
+<meta property="og:image" content="../assets/img/seat/seat-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i></div>
+
+<nav>
+  <a class="brand" href="../index.html#/home">Berliana</a>
+  <div class="links">
+    <a href="../index.html#/home">Home</a>
+    <a href="../index.html#/experience">Experience</a>
+    <a class="on" href="../index.html#/projects">Projects</a>
+    <a href="../index.html#/research">Research</a>
+    <a href="../index.html#/education">Education</a>
+    <a href="../index.html#/certifications">Certifications</a>
+    <span id="ink"></span>
+  </div>
+</nav>
+
+<main class="stage">
+<section class="page show"><div class="wrap">
+  <a class="back" href="../index.html#/projects">Back to projects</a>
+
+  <h2>SEAT: From Votes to Elected Legislators, Automated.</h2>
+  <p class="meta"><b>Project name:</b> SEAT (Seat Allocation &amp; Electoral Candidate Selection)</p>
+  <p class="meta"><b>Project type:</b></p>
+  <ul class="tags"><li>Personal</li><li>Solo</li></ul>
+  <p class="meta"><b>Tools &amp; skills:</b></p>
+  <ul class="tags"><li>Automation</li><li>Google Apps Script</li><li>Google Sheets</li><li>Gemini API</li></ul>
+
+  <div class="gallery" id="gallery" aria-label="SEAT screenshots">
+    <div class="gallery-track">
+      <img src="../assets/img/seat/seat-1.png" alt="SEAT screenshot 1">
+      <img src="../assets/img/seat/seat-2.png" alt="SEAT screenshot 2" loading="lazy">
+      <img src="../assets/img/seat/seat-3.png" alt="SEAT screenshot 3" loading="lazy">
+      <img src="../assets/img/seat/seat-4.png" alt="SEAT screenshot 4" loading="lazy">
+      <img src="../assets/img/seat/seat-5.png" alt="SEAT screenshot 5" loading="lazy">
+    </div>
+    <button class="gallery-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
+    <button class="gallery-btn next" type="button" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <h3 class="s">About</h3>
+  <p>SEAT is an automation tool designed to calculate seat allocation for political parties using the Sainte-Laguë method and identify elected candidates directly from election results documented in <a href="https://jatim.kpu.go.id/page/read/rekapitulasi-hasil-penghitungan-perolehan-suara-pemilu-tahun-2024-tingkat-provinsi-jawa-timur" target="_blank" rel="noopener">Formulir D Hasil</a>. The tool integrates AI-powered data extraction, human verification, and automated calculations into a single workflow, reducing repetitive manual work and minimizing the need to switch between different tools while keeping the results verifiable.</p>
+
+  <h3 class="s">The Journey from Concept to Completion</h3>
+  <p class="tldr"><b>TL;DR:</b> Identified manual bottlenecks in the seat allocation and electoral candidate selection workflow, developed an automated solution, and iteratively refined it through testing and user feedback, including AI-powered vote extraction and usability improvements.</p>
+
+  <details class="dd">
+    <summary>What’s the Problem?</summary>
+    <div class="dd-body">
+      <p>The existing workflow has several pain points:</p>
+      <ol>
+        <li><b>Data transcription:</b> Vote counts must be manually transcribed from scanned Formulir D Hasil PDF documents into spreadsheets.</li>
+        <li><b>Seat allocation:</b> The seat allocation is not calculated by regularly ranking the highest-voted party, but requires the Sainte-Laguë method. Due to this allocation mechanism, the Sainte-Laguë method is applied using spreadsheet formulas and manual calculations/reasoning.</li>
+        <li><b>Candidate selection:</b> Users must refer back to the Formulir D Hasil PDF documents to identify candidates with the highest vote counts from each allocated party and identify who gets elected.</li>
+      </ol>
+      <p>These steps are repeated across multiple electoral districts, making the process time-consuming and repetitive. Switching between scanned documents, spreadsheets, and manual calculations also increases the risk of transcription errors and inconsistencies.</p>
+    </div>
+  </details>
+
+  <details class="dd">
+    <summary>Here is My Solution</summary>
+    <div class="dd-body">
+      <p>SEAT integrates AI-powered data extraction, human verification, and automated electoral calculations into a single workflow using Google Apps Script, Gemini API, Google Sheets, and Google Drive. Google-based tools are used because they are familiar to users and already integrated into their existing work processes.</p>
+      <ol>
+        <li><b>Upload:</b> Users upload one or multiple Formulir D Hasil PDF documents. When multiple files are uploaded, SEAT automatically queues them and processes up to two PDFs concurrently.</li>
+        <li><b>Extract:</b> The Gemini API extracts vote counts from each PDF document. If extraction fails, users can retry the process or enter the vote counts manually.</li>
+        <li><b>Validate &amp; Verify:</b> SEAT performs system-level validation on the extracted data and displays warnings when inconsistencies are detected. Users then review and verify the data or manually input the vote counts when necessary.</li>
+        <li><b>Calculate:</b> Once verified, users can save and proceed with the data for each electoral district. Google Apps Script generates a spreadsheet containing four sheets with predefined formulas, while Google Sheets handles the seat allocation calculations using the Sainte-Laguë method and identifies elected candidates based on their vote counts.</li>
+        <li><b>Generate District Recap:</b> After processing individual electoral districts, users can optionally combine the results into a district recap. SEAT generates a consolidated spreadsheet, and Google Sheets calculates the combined results.</li>
+        <li><b>Store &amp; Access:</b> Generated spreadsheets are automatically saved to a centralized Google Drive folder, making the results accessible for future reference.</li>
+      </ol>
+      <p class="tagline">In short, AI extracts. Humans verify. The system calculates and generates.</p>
+      <figure><img src="../assets/img/seat/activity-diagram.png" alt="SEAT activity diagram" loading="lazy"><figcaption>Activity diagram</figcaption></figure>
+    </div>
+  </details>
+
+  <details class="dd">
+    <summary>How Was It Built?</summary>
+    <div class="dd-body">
+      <p>The development of SEAT followed an iterative approach. The application was gradually developed and refined through multiple rounds of self-testing, with feedback informing improvements to its functionality, automation, and usability.</p>
+
+      <h4>1. Workflow Analysis</h4>
+      <ul>
+        <li>Studied the existing seat allocation and electoral candidate selection workflow.</li>
+        <li>Identified repetitive tasks and potential automation opportunities.</li>
+        <li>Defined system requirements and user use cases.</li>
+      </ul>
+      <figure><img src="../assets/img/seat/use-case-diagram.png" alt="SEAT use case diagram" loading="lazy"><figcaption>Use case diagram</figcaption></figure>
+
+      <h4>2. Core Functionality Development</h4>
+      <ul>
+        <li>Developed Google Apps Script to automate seat allocation using the Sainte-Laguë method.</li>
+        <li>Implemented the logic to identify elected candidates based on party seat allocation and candidate vote counts.</li>
+      </ul>
+
+      <h4>3. Self-Testing 1: Core Functionality</h4>
+      <h5>Findings</h5>
+      <ul>
+        <li>Manually transcribing vote counts from Formulir D Hasil PDFs remained a repetitive task.</li>
+        <li>The application needed to reduce dependence on manual data entry.</li>
+      </ul>
+      <h5>Improvements</h5>
+      <ul><li>Integrated the Gemini API to automate vote count extraction directly from PDF documents.</li></ul>
+
+      <h4>4. Self-Testing 2: Automation &amp; Workflow</h4>
+      <h5>Findings</h5>
+      <ul>
+        <li>AI extraction could occasionally fail due to Gemini API errors.</li>
+        <li>Users needed an alternative when automated extraction was unsuccessful.</li>
+        <li>Extracted data required system-level validation before user verification.</li>
+        <li>Processing multiple electoral districts required a more efficient workflow.</li>
+      </ul>
+      <h5>Improvements</h5>
+      <ul>
+        <li>Implemented retry functionality and warning notifications when extraction fails.</li>
+        <li>Added manual vote count entry as a fallback mechanism.</li>
+        <li>Implemented automated data validation before user verification.</li>
+        <li>Enabled multiple PDF uploads with automated queue management, processing up to two PDFs concurrently.</li>
+      </ul>
+
+      <h4>5. Self-Testing 3: Usability &amp; User Experience</h4>
+      <h5>Findings</h5>
+      <ul>
+        <li>Users needed a way to track their processing activities and access previously generated results.</li>
+        <li>Generated spreadsheets needed centralized storage and easier access.</li>
+        <li>Users needed to perform repeated calculations without losing access to the action buttons.</li>
+        <li>The interface required clearer navigation and instructions.</li>
+      </ul>
+      <h5>Improvements</h5>
+      <ul>
+        <li>Implemented individual processing histories (Riwayat Saya).</li>
+        <li>Centralized generated spreadsheets in a Google Drive folder.</li>
+        <li>Added an option to open the centralized Drive folder directly from the history pop-up.</li>
+        <li>Enabled link-based access to generated spreadsheets.</li>
+        <li>Improved the interface to support repeated calculations.</li>
+        <li>Added English/Indonesian language selection.</li>
+        <li>Refined the layout, section organization, and button labels.</li>
+      </ul>
+
+      <h4>6. Final Refinement</h4>
+      <ul>
+        <li>Addressed remaining usability issues.</li>
+        <li>Refined the extraction, validation, and manual entry workflows.</li>
+        <li>Conducted final checks to ensure the application worked as intended.</li>
+      </ul>
+
+      <h4>7. Final Demonstration</h4>
+      <ul><li>Presented the completed SEAT application and demonstrated its end-to-end workflow, from PDF upload to automated seat allocation and elected candidate identification.</li></ul>
+    </div>
+  </details>
+
+  <details class="dd">
+    <summary>The Challenges</summary>
+    <div class="dd-body">
+      <p>SEAT runs on the free tier of the Gemini API, which has lower priority during high-demand periods and sometimes returns errors. To keep the tool usable, I added retry logic, added clear error messages so users can re-run the extraction, and kept manual input as a fallback. In a production setting, a paid tier would remove most of these failures.</p>
+    </div>
+  </details>
+
+  <h3 class="s">Video</h3>
+  <div class="video">
+    <!-- Ganti dengan: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="SEAT demo" allowfullscreen></iframe> -->
+    <span>Video coming soon</span>
+  </div>
+</div></section>
+</main>
+
+<script>
+const g=document.querySelector('#gallery .gallery-track');
+document.querySelector('#gallery .prev').onclick=()=>g.scrollBy({left:-g.clientWidth});
+document.querySelector('#gallery .next').onclick=()=>g.scrollBy({left:g.clientWidth});
+function ink(){
+  const a=document.querySelector('.links a.on'),i=document.getElementById('ink');
+  i.style.width=a.offsetWidth+'px';i.style.transform='translateX('+a.offsetLeft+'px)';i.style.opacity=1;
+  a.scrollIntoView({inline:'center',block:'nearest'});
+}
+addEventListener('resize',ink);
+document.fonts&&document.fonts.ready.then(ink);
+ink();
+</script>
+</body>
+</html>
