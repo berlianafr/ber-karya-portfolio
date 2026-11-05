@@ -172,3 +172,5 @@ details.dd[open]>summary::after{content:"\2212";transform:none}
 
 .nw{white-space:nowrap}
 #p-research h3.s{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+/* room for the hover lift so the card's top border is not clipped by the scroll container */
+.slider .gallery-track{padding:8px 0;margin:-8px 0}
