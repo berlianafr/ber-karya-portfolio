@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body class="intro">
 <div class="bg"><i></i><i></i><i></i></div>
@@ -49,23 +49,36 @@
   </div>
   <p>Data-driven professional with 4+ years of experience at Indonesia’s General Elections Commission (Komisi Pemilihan Umum/KPU) across internal audit, procurement, logistics, and election analytics. An Information Systems graduate from BINUS University and author of machine learning research on corporate credit risk, accepted for publication in Scopus-indexed proceedings. Bridges three key areas: IT (data analytics and machine learning), operations (logistics, procurement, and accounting), and assurance (audit and risk management), connecting technical knowledge with practical experience to solve cross-functional problems.</p>
 
-  <h2 style="margin-top:2.5rem">Currently Done</h2>
-  <div class="slider">
-    <div class="gallery-track" id="cd-track"></div>
-    <div class="ctl">
-      <button class="gallery-btn static" type="button" data-dir="-1" aria-label="Previous">&#8249;</button>
-      <button class="gallery-btn static" type="button" data-dir="1" aria-label="Next">&#8250;</button>
-    </div>
-  </div>
+  <h2 class="sec">Technical Skills</h2>
+  <dl class="skl">
+    <div class="skrow"><dt>Data Analytics &amp; Machine Learning</dt><dd><span>Python</span> <span>SQL</span> <span>Microsoft Excel</span> <span>Google Sheets</span> <span>Google Colab</span> <span>Scikit-learn</span> <span>XGBoost</span> <span>LightGBM</span> <span>SHAP</span> <span>Google Apps Script</span></dd></div>
+    <div class="skrow"><dt>Data Processing &amp; Automation</dt><dd><span>Data Cleaning</span> <span>Data Validation</span> <span>Data Analysis</span> <span>Workflow Automation</span> <span>Reporting Automation</span></dd></div>
+    <div class="skrow"><dt>Operations &amp; Supply Chain</dt><dd><span>Logistics Monitoring</span> <span>Supply Chain Risk Management</span> <span>Procurement Planning</span> <span>Budget Estimation</span> <span>Cost Analysis</span> <span>Vendor Evaluation</span></dd></div>
+    <div class="skrow"><dt>Audit &amp; Risk Management</dt><dd><span>Internal Control Assessment</span> <span>Risk Assessment</span> <span>Regulatory Compliance</span> <span>Financial Reconciliation</span> <span>Transaction Vouching</span> <span>Audit Documentation</span></dd></div>
+    <div class="skrow"><dt>Systems Analysis &amp; Design</dt><dd><span>UML Modeling</span> <span>Business Requirements Analysis</span> <span>Workflow and Process Modeling</span></dd></div>
+  </dl>
 
-  <h2 style="margin-top:2.5rem">Technical Skills</h2>
-  <div class="skgrid">
-    <div class="skcard"><h3>Data Analytics &amp; Machine Learning</h3><div class="pills" style="display:flex"><em class="pill">Python</em><em class="pill">SQL</em><em class="pill">Microsoft Excel</em><em class="pill">Google Sheets</em><em class="pill">Google Colab</em><em class="pill">Scikit-learn</em><em class="pill">XGBoost</em><em class="pill">LightGBM</em><em class="pill">SHAP</em><em class="pill">Google Apps Script</em></div></div>
-    <div class="skcard"><h3>Data Processing &amp; Automation</h3><div class="pills" style="display:flex"><em class="pill">Data Cleaning</em><em class="pill">Data Validation</em><em class="pill">Data Analysis</em><em class="pill">Workflow Automation</em><em class="pill">Reporting Automation</em></div></div>
-    <div class="skcard"><h3>Operations &amp; Supply Chain</h3><div class="pills" style="display:flex"><em class="pill">Logistics Monitoring</em><em class="pill">Supply Chain Risk Management</em><em class="pill">Procurement Planning</em><em class="pill">Budget Estimation</em><em class="pill">Cost Analysis</em><em class="pill">Vendor Evaluation</em></div></div>
-    <div class="skcard"><h3>Audit &amp; Risk Management</h3><div class="pills" style="display:flex"><em class="pill">Internal Control Assessment</em><em class="pill">Risk Assessment</em><em class="pill">Regulatory Compliance</em><em class="pill">Financial Reconciliation</em><em class="pill">Transaction Vouching</em><em class="pill">Audit Documentation</em></div></div>
-    <div class="skcard"><h3>Systems Analysis &amp; Design</h3><div class="pills" style="display:flex"><em class="pill">UML Modeling</em><em class="pill">Business Requirements Analysis</em><em class="pill">Workflow and Process Modeling</em></div></div>
-    
+  <h2 class="sec">Currently Done</h2>
+  <div class="slider">
+    <div class="gallery-track">
+      <!-- CURRENTLY DONE: salin satu blok <a class="card"> untuk menambah item, hapus untuk menghilangkan -->
+      <a class="card" href="projects/seat.html">
+        <span class="eyebrow">Project</span>
+        <h3>SEAT: Seat Allocation &amp; Electoral Candidate Selection</h3>
+        <p>From votes to elected legislators, automated. AI extracts, humans verify, the system calculates.</p>
+        <span class="go">View project</span>
+      </a>
+      <a class="card" href="#/research">
+        <span class="eyebrow">Research</span>
+        <h3>Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company</h3>
+        <p>ICoAILO 2026 paper presenter, to be published in Scopus-indexed conference proceedings.</p>
+        <span class="go">Read more</span>
+      </a>
+    </div>
+    <div class="ctl">
+      <button class="gallery-btn" type="button" data-dir="-1" aria-label="Previous">&#8249;</button>
+      <button class="gallery-btn" type="button" data-dir="1" aria-label="Next">&#8250;</button>
+    </div>
   </div>
 </div></section>
 
@@ -75,26 +88,26 @@
     <li>Analyzed East Java voter data to determine electoral district (dapil) requirements and support district design simulations.</li>
     <li>Developed a dynamic seat-allocation tool using the Sainte-Laguë method for 18 political parties across 11 DPR and 14 provincial DPRD districts, cutting processing time from days to hours.</li>
     <li>Administered legislative replacement (PAW) processes for the East Java Provincial DPRD and monitored progress across 38 regencies/cities.</li>
-    <li>Facilitated electoral discussions with administrators, academics, and other stakeholders.</li></ul></details>
+    <li>Facilitated electoral discussions with administrators, academics, and other stakeholders.</li></ul><div class="pills pills-end"><em class="pill">Google Apps Script</em><em class="pill">Gemini API</em><em class="pill">Google Sheets</em><em class="pill">Sainte-Laguë</em><em class="pill">Data Analysis</em></div></details>
   <details><summary><span>Logistics Monitoring and Evaluation Officer, KPU Logistics Bureau, Jakarta<small>July 2024 to April 2026</small><span class="pills"><em class="pill">Microsoft Excel</em><em class="pill">Data Validation</em><em class="pill">Supply Chain Risk Management</em><em class="pill">Logistics Monitoring</em><em class="pill">Reporting</em></span></span></summary><ul>
     <li>Compiled and analyzed logistics data from 552 work units (38 provinces and 514 regencies/cities) for nationwide consolidated reporting.</li>
     <li>Designed a centralized logistics monitoring system with standardized formats and input validation, replacing inconsistent manual Excel files.</li>
     <li>Mapped supply chain risks across 5 zones and 20 risk categories, identifying the top 4 risks per zone and nationally with zone-specific mitigation recommendations.</li>
-    <li>Contributed to the initial 2029 Election Logistics Roadmap by defining business processes, outputs, steps, and deadlines.</li></ul></details>
+    <li>Contributed to the initial 2029 Election Logistics Roadmap by defining business processes, outputs, steps, and deadlines.</li></ul><div class="pills pills-end"><em class="pill">Microsoft Excel</em><em class="pill">Data Validation</em><em class="pill">Supply Chain Risk Management</em><em class="pill">Logistics Monitoring</em><em class="pill">Reporting</em></div></details>
   <details><summary><span>Procurement Officer, KPU Logistics Bureau, Jakarta<small>July 2023 to July 2024</small><span class="pills"><em class="pill">Procurement Planning</em><em class="pill">Budget Estimation</em><em class="pill">Cost Analysis</em><em class="pill">Market Price Survey</em></span></span></summary><ul>
     <li>Planned nationwide logistics procurement for the 2024 General Election: 204.8 million registered voters, 820,161 polling stations, 10 logistics categories.</li>
     <li>Contributed to regional zoning and centralized procurement with LKPP, supporting efficiency of approximately Rp381 billion.</li>
     <li>Conducted nationwide market price surveys and prepared Estimated Costs (HPS) for designated zones.</li>
-    <li>Monitored production of approximately 1.2 billion ballot sheets for compliance with specifications and quality requirements.</li></ul></details>
+    <li>Monitored production of approximately 1.2 billion ballot sheets for compliance with specifications and quality requirements.</li></ul><div class="pills pills-end"><em class="pill">Procurement Planning</em><em class="pill">Budget Estimation</em><em class="pill">Cost Analysis</em><em class="pill">Market Price Survey</em></div></details>
   <details><summary><span>Internal Auditor, KPU, Jakarta<small>January 2022 to July 2023</small><span class="pills"><em class="pill">Internal Control Assessment</em><em class="pill">Risk Assessment</em><em class="pill">Regulatory Compliance</em><em class="pill">Financial Reconciliation</em></span></span></summary><ul>
     <li>Reviewed semiannual financial statements and reconciled cash balances and imprest funds.</li>
     <li>Advised regional work units on financial management, regulatory compliance, and internal controls.</li>
-    <li>Supported development of risk management regulation PKPU No. 8 of 2023 through research, stakeholder discussions, and socialization materials.</li></ul></details>
+    <li>Supported development of risk management regulation PKPU No. 8 of 2023 through research, stakeholder discussions, and socialization materials.</li></ul><div class="pills pills-end"><em class="pill">Internal Control Assessment</em><em class="pill">Risk Assessment</em><em class="pill">Regulatory Compliance</em><em class="pill">Financial Reconciliation</em></div></details>
   <details><summary><span>Audit Intern, AR Utomo Public Accounting Firms, Surabaya<small>September 2021</small><span class="pills"><em class="pill">Audit Working Papers</em><em class="pill">Transaction Vouching</em><em class="pill">Reconciliation</em></span></span></summary><ul>
-    <li>Prepared audit working papers and performed transaction vouching and reconciliation to identify discrepancies.</li></ul></details>
+    <li>Prepared audit working papers and performed transaction vouching and reconciliation to identify discrepancies.</li></ul><div class="pills pills-end"><em class="pill">Audit Working Papers</em><em class="pill">Transaction Vouching</em><em class="pill">Reconciliation</em></div></details>
   <details><summary><span>Student Intern, Directorate General of Taxes<small>March to June 2021</small><span class="pills"><em class="pill">Microsoft Excel</em><em class="pill">Tax Audit</em><em class="pill">Reconciliation</em><em class="pill">Quality Assurance</em></span></span></summary><ul>
     <li>Supported tax audits by reviewing financial records, preparing working papers, and reconciling ledger and bank data in Excel.</li>
-    <li>Evaluated audit quality assurance procedures against SOPs and recommended process improvements.</li></ul></details>
+    <li>Evaluated audit quality assurance procedures against SOPs and recommended process improvements.</li></ul><div class="pills pills-end"><em class="pill">Microsoft Excel</em><em class="pill">Tax Audit</em><em class="pill">Reconciliation</em><em class="pill">Quality Assurance</em></div></details>
 </div></section>
 
 <section class="page" id="p-projects"><div class="wrap">
@@ -108,7 +121,7 @@
 
 <section class="page" id="p-research"><div class="wrap">
   <h2>Research &amp; Publications</h2>
-  <h3 class="s" style="margin-top:0">Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company</h3>
+  <h3 class="s rtitle" style="margin-top:0">Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company</h3>
   <p style="margin:.2rem 0 1rem"><a class="ext" href="https://zenodo.org/records/23138626" target="_blank" rel="noopener">Code and processed dataset on Zenodo</a></p>
   <p>The 2nd International Conference on Artificial Intelligence for Learning and Optimization (ICoAILO 2026), October 2026, paper presenter. To be published in Scopus-indexed conference proceedings.</p>
   <ul>
@@ -141,7 +154,6 @@
 
 </main>
 
-<script src="assets/js/currently-done.js"></script>
 <script>
 const order=['home','projects','experience','certifications','education','research'];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -180,9 +192,15 @@ function route(){
 addEventListener('hashchange',route);
 addEventListener('resize',ink);
 document.fonts&&document.fonts.ready.then(ink);
-document.addEventListener('click',e=>{const b=e.target.closest('[data-dir]');if(!b)return;const t=b.closest('.slider').querySelector('.gallery-track');t.scrollBy({left:b.dataset.dir*t.clientWidth})});
-(function(){const t=document.getElementById('cd-track');(window.CURRENTLY_DONE||[]).forEach(i=>{const a=document.createElement('a');a.className='card';a.href=i.href;
-[['span','eyebrow',i.tag],['h3','',i.title],['p','',i.text],['span','go',i.cta]].forEach(([tag,cls,txt])=>{const e=document.createElement(tag);if(cls)e.className=cls;e.textContent=txt;a.appendChild(e)});t.appendChild(a)})})();
+/* sliders: arrows, touch swipe, trackpad, and mouse drag */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-dir]');if(!b)return;const t=b.closest('.slider').querySelector('.gallery-track');t.scrollBy({left:b.dataset.dir*(t.firstElementChild.getBoundingClientRect().width+12)})});
+document.querySelectorAll('.gallery-track').forEach(t=>{let d=null,moved=false;
+  t.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button)return;d={x:e.clientX,l:t.scrollLeft};moved=false});
+  addEventListener('pointermove',e=>{if(!d)return;const dx=e.clientX-d.x;if(Math.abs(dx)>4){moved=true;t.classList.add('drag')}if(moved)t.scrollLeft=d.l-dx});
+  addEventListener('pointerup',()=>{if(d){d=null;t.classList.remove('drag')}});
+  t.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+  t.addEventListener('dragstart',e=>e.preventDefault());
+});
 route();
 </script>
 </body>
