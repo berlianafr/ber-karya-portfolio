@@ -169,3 +169,6 @@ details.dd[open]>summary::after{content:"\2212";transform:none}
 .wrap p,.wrap li,.wrap dd,.wrap figcaption{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
 #p-welcome .lead{text-align:center;hyphens:manual;-webkit-hyphens:manual}
 .tags li,.cert-main p{text-align:left}
+
+.nw{white-space:nowrap}
+#p-research h3.s{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
