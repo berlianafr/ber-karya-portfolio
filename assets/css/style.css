@@ -17,9 +17,8 @@ li{margin:.2rem 0}
 .bg i:nth-child(3){width:34vmax;height:34vmax;background:#f6e4de;left:28vw;bottom:-18vmax;animation-delay:-15s}
 @keyframes drift{to{transform:translate(6vmax,-4vmax) scale(1.12)}}
 
-/* Navbar: transparent look, no line; solid at the top and fading lower down so content never overlaps */
-nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:max(1rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) 2.2rem max(1.5rem,env(safe-area-inset-left));background:linear-gradient(var(--bg) 0,var(--bg) 68%,rgba(238,244,245,0) 100%);pointer-events:none;transition:transform .7s var(--ease),opacity .7s}
-nav>*{pointer-events:auto}
+/* Navbar: fully transparent, no line or band. Instead the page content fades out as it scrolls up under the nav (mask on .page). */
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:max(1rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) .6rem max(1.5rem,env(safe-area-inset-left));transition:transform .7s var(--ease),opacity .7s}
 body.intro nav{transform:translateY(-100%);opacity:0;pointer-events:none}
 .brand{font-size:1.25rem;font-weight:400;text-decoration:none;white-space:nowrap}
 .links{position:relative;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none;padding-bottom:.5rem}
@@ -30,6 +29,7 @@ body.intro nav{transform:translateY(-100%);opacity:0;pointer-events:none}
 .stage{position:fixed;inset:0;z-index:1}
 .page{position:absolute;inset:0;overflow-y:auto;display:none}
 .page.show{display:block}
+.page:not(#p-welcome){--fa:calc(4.2rem + env(safe-area-inset-top,0px));--fb:calc(6.4rem + env(safe-area-inset-top,0px));-webkit-mask-image:linear-gradient(to bottom,transparent var(--fa),#000 var(--fb));mask-image:linear-gradient(to bottom,transparent var(--fa),#000 var(--fb))}
 .wrap{max-width:46rem;margin:0 auto;padding:6rem 1.5rem 4rem}
 
 /* Landing */
@@ -53,7 +53,7 @@ h3.s{font-size:1.25rem;margin:1.5rem 0 .4rem}
 .sec{margin-top:2.5rem}
 .skl{margin:0;border-top:1px solid var(--line)}
 .skrow{display:grid;grid-template-columns:11.5rem 1fr;gap:.2rem 1.5rem;padding:1rem 0;border-bottom:1px solid var(--line)}
-.skl dt{font-weight:500}
+.skl dt{font-weight:400}
 .skl dd{margin:0;color:var(--mute)}
 .skl dd span{white-space:nowrap}
 .skl dd span:not(:last-child)::after{content:"\00b7";margin:0 .55rem;color:var(--tide)}
@@ -78,7 +78,7 @@ h3.s{font-size:1.25rem;margin:1.5rem 0 .4rem}
 /* Dropdowns (Experience, Education) */
 details{border-top:1px solid var(--line)}
 details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;font-weight:500}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;font-weight:400}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"";flex:none;width:.5rem;height:.5rem;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .35s var(--ease)}
 details[open]>summary::after{transform:rotate(-135deg)}
@@ -94,7 +94,6 @@ details[open] summary .pills{display:none}
 .ext{text-decoration:none;color:var(--mute);font-size:.95rem}
 .ext::after{content:"\2197";margin-left:.3rem}
 .ext:hover{color:var(--ink);text-decoration:underline}
-.rtitle{font-weight:600}
 
 /* Certifications */
 .certlist{border-top:1px solid var(--line)}
@@ -138,7 +137,7 @@ details.dd[open]>summary::after{content:"\2212";transform:none}
 }
 @media(min-width:1024px){
   html,body{font-size:1.0625rem}
-  nav{padding:1.4rem 3.5rem 2.2rem}
+  nav{padding:1.4rem 3.5rem .6rem}
   .links{gap:2rem}
   .wrap{max-width:54rem;padding:7.5rem 2rem 5rem}
   #p-welcome .wrap{max-width:62rem;padding:2rem 3rem}
@@ -146,6 +145,7 @@ details.dd[open]>summary::after{content:"\2212";transform:none}
 }
 @media(max-width:639px){
   nav{flex-direction:column;align-items:flex-start;gap:.2rem}
+  .page:not(#p-welcome){--fa:calc(5.6rem + env(safe-area-inset-top,0px));--fb:calc(7.6rem + env(safe-area-inset-top,0px))}
   .links{width:100%;gap:1.2rem}
   .wrap{padding:8rem 1.25rem 3rem}
   #p-welcome .wrap{padding:2rem 1.25rem}
