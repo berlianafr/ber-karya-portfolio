@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2">
+<link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body class="intro">
 <div class="bg"><i></i><i></i><i></i></div>
@@ -49,23 +49,9 @@
   </div>
   <p>Data-driven professional with 4+ years of experience at Indonesia’s General Elections Commission (Komisi Pemilihan Umum/KPU) across internal audit, procurement, logistics, and election analytics. An Information Systems graduate from BINUS University and author of machine learning research on corporate credit risk, accepted for publication in Scopus-indexed proceedings. Bridges three key areas: IT (data analytics and machine learning), operations (logistics, procurement, and accounting), and assurance (audit and risk management), connecting technical knowledge with practical experience to solve cross-functional problems.</p>
 
-  <h2 style="margin-top:2.5rem">Featured</h2>
+  <h2 style="margin-top:2.5rem">Currently Done</h2>
   <div class="slider">
-    <div class="gallery-track">
-      <a class="card" href="projects/seat.html">
-        <span class="eyebrow">Project</span>
-        <h3>SEAT: Seat Allocation &amp; Electoral Candidate Selection</h3>
-        <p>From votes to elected legislators, automated. AI extracts, humans verify, the system calculates.</p>
-        <span class="go">View project</span>
-      </a>
-      <a class="card" href="#/research">
-        <span class="eyebrow">Research</span>
-        <h3>Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company</h3>
-  <p style="margin:.2rem 0 1rem"><a class="ext" href="https://zenodo.org/records/23138626" target="_blank" rel="noopener">Code and processed dataset on Zenodo</a></p>
-        <p>ICoAILO 2026 paper presenter, to be published in Scopus-indexed conference proceedings.</p>
-        <span class="go">Read more</span>
-      </a>
-    </div>
+    <div class="gallery-track" id="cd-track"></div>
     <div class="ctl">
       <button class="gallery-btn static" type="button" data-dir="-1" aria-label="Previous">&#8249;</button>
       <button class="gallery-btn static" type="button" data-dir="1" aria-label="Next">&#8250;</button>
@@ -123,6 +109,7 @@
 <section class="page" id="p-research"><div class="wrap">
   <h2>Research &amp; Publications</h2>
   <h3 class="s" style="margin-top:0">Comparative Study of Predictive Models for Non-Performing Loan Prediction in a P2P Lending Company</h3>
+  <p style="margin:.2rem 0 1rem"><a class="ext" href="https://zenodo.org/records/23138626" target="_blank" rel="noopener">Code and processed dataset on Zenodo</a></p>
   <p>The 2nd International Conference on Artificial Intelligence for Learning and Optimization (ICoAILO 2026), October 2026, paper presenter. To be published in Scopus-indexed conference proceedings.</p>
   <ul>
     <li>Compared Logistic Regression, Decision Tree, Random Forest, XGBoost, and LightGBM on 578 corporate loan records with 17 scorecard features and an NPL rate of 8.7%.</li>
@@ -144,48 +131,17 @@
 
 <section class="page" id="p-certifications"><div class="wrap">
   <h2>Licenses &amp; Certifications</h2>
-  <div class="certgrid">
-    <div class="certcard">
-      <div class="cert-img"><img src="assets/img/certs/ml-specialization.png" alt="Supervised Machine Learning: Regression and Classification certificate" loading="lazy" onerror="this.remove()"></div>
-      <div class="cert-body">
-        <h3>Supervised Machine Learning: Regression and Classification</h3>
-        <p>DeepLearning.AI, Stanford University &middot; February 2026</p>
-        <!-- TODO: ganti href dengan link kredensial -->
-        <a class="ext" href="#/certifications" target="_self">View credential</a>
-      </div>
-    </div>
-    <div class="certcard">
-      <div class="cert-img"><img src="assets/img/certs/skilled-auditor.png" alt="Certified Skilled Auditor certificate" loading="lazy" onerror="this.remove()"></div>
-      <div class="cert-body">
-        <h3>Certified Skilled Auditor</h3>
-        <p>BPKP &middot; June 2024</p>
-        <!-- TODO: ganti href dengan link kredensial -->
-        <a class="ext" href="#/certifications" target="_self">View credential</a>
-      </div>
-    </div>
-    <div class="certcard">
-      <div class="cert-img"><img src="assets/img/certs/procurement-lkpp.png" alt="Government Procurement Certification certificate" loading="lazy" onerror="this.remove()"></div>
-      <div class="cert-body">
-        <h3>Government Procurement Certification</h3>
-        <p>LKPP &middot; April 2024</p>
-        <!-- TODO: ganti href dengan link kredensial -->
-        <a class="ext" href="#/certifications" target="_self">View credential</a>
-      </div>
-    </div>
-    <div class="certcard">
-      <div class="cert-img"><img src="assets/img/certs/pcap.png" alt="Certified Associate in Python Programming (PCAP) certificate" loading="lazy" onerror="this.remove()"></div>
-      <div class="cert-body">
-        <h3>Certified Associate in Python Programming (PCAP)</h3>
-        <p>Python Institute &middot; November 2021</p>
-        <!-- TODO: ganti href dengan link kredensial -->
-        <a class="ext" href="#/certifications" target="_self">View credential</a>
-      </div>
-    </div>
+  <div class="certlist">
+    <div class="cert"><div class="cert-img"><img src="assets/img/certs/ml-specialization.png" alt="Supervised Machine Learning: Regression and Classification certificate" loading="lazy" onerror="this.remove()"></div><div class="cert-main"><h3>Supervised Machine Learning: Regression and Classification</h3><p>DeepLearning.AI, Stanford University</p><!-- TODO: ganti href dengan link kredensial --><a class="ext" href="#/certifications">View credential</a></div><div class="cert-date">February 2026</div></div>
+    <div class="cert"><div class="cert-img"><img src="assets/img/certs/skilled-auditor.png" alt="Certified Skilled Auditor certificate" loading="lazy" onerror="this.remove()"></div><div class="cert-main"><h3>Certified Skilled Auditor</h3><p>BPKP</p><!-- TODO: ganti href dengan link kredensial --><a class="ext" href="#/certifications">View credential</a></div><div class="cert-date">June 2024</div></div>
+    <div class="cert"><div class="cert-img"><img src="assets/img/certs/procurement-lkpp.png" alt="Government Procurement Certification certificate" loading="lazy" onerror="this.remove()"></div><div class="cert-main"><h3>Government Procurement Certification</h3><p>LKPP</p><!-- TODO: ganti href dengan link kredensial --><a class="ext" href="#/certifications">View credential</a></div><div class="cert-date">April 2024</div></div>
+    <div class="cert"><div class="cert-img"><img src="assets/img/certs/pcap.png" alt="Certified Associate in Python Programming (PCAP) certificate" loading="lazy" onerror="this.remove()"></div><div class="cert-main"><h3>Certified Associate in Python Programming (PCAP)</h3><p>Python Institute</p><!-- TODO: ganti href dengan link kredensial --><a class="ext" href="#/certifications">View credential</a></div><div class="cert-date">November 2021</div></div>
   </div>
 </div></section>
 
 </main>
 
+<script src="assets/js/currently-done.js"></script>
 <script>
 const order=['home','projects','experience','certifications','education','research'];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -225,6 +181,8 @@ addEventListener('hashchange',route);
 addEventListener('resize',ink);
 document.fonts&&document.fonts.ready.then(ink);
 document.addEventListener('click',e=>{const b=e.target.closest('[data-dir]');if(!b)return;const t=b.closest('.slider').querySelector('.gallery-track');t.scrollBy({left:b.dataset.dir*t.clientWidth})});
+(function(){const t=document.getElementById('cd-track');(window.CURRENTLY_DONE||[]).forEach(i=>{const a=document.createElement('a');a.className='card';a.href=i.href;
+[['span','eyebrow',i.tag],['h3','',i.title],['p','',i.text],['span','go',i.cta]].forEach(([tag,cls,txt])=>{const e=document.createElement(tag);if(cls)e.className=cls;e.textContent=txt;a.appendChild(e)});t.appendChild(a)})})();
 route();
 </script>
 </body>
