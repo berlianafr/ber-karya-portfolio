@@ -113,9 +113,10 @@ details.dd[open]>summary::after{content:"\2212";transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* ---------- Round 2 additions ---------- */
-#p-welcome .wrap{width:100%;text-align:center}
-#p-welcome .pic{display:block;margin:0 auto 1.4rem}
-#p-welcome .lead{margin-left:auto;margin-right:auto}
+#p-welcome{justify-content:center}
+#p-welcome .wrap{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+#p-welcome .pic{display:block;margin:0 0 1.4rem}
+#p-welcome .lead{margin:0 0 2rem;text-align:center}
 #p-welcome .btn{display:inline-block}
 .ext{text-decoration:none;color:var(--mute);font-size:.95rem}
 .ext::after{content:"\2197";margin-left:.3rem}
