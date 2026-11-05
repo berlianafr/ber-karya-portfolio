@@ -7,10 +7,10 @@
 <meta name="description" content="SEAT automates seat allocation with the Sainte-Laguë method and elected candidate identification from Formulir D Hasil, using Google Apps Script, Google Sheets, and the Gemini API.">
 <meta property="og:title" content="SEAT: From Votes to Elected Legislators, Automated.">
 <meta property="og:description" content="AI extracts. Humans verify. The system calculates and generates.">
-<meta property="og:image" content="../assets/img/seat-1.png">
+<meta property="og:image" content="../assets/img/seat/seat-1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -20,11 +20,11 @@
   <a class="brand" href="../index.html#/home">Berliana</a>
   <div class="links">
     <a href="../index.html#/home">Home</a>
-    <a href="../index.html#/experience">Experience</a>
     <a class="on" href="../index.html#/projects">Projects</a>
+    <a href="../index.html#/experience">Exp</a>
+    <a href="../index.html#/certifications">Certif</a>
+    <a href="../index.html#/education">Edu</a>
     <a href="../index.html#/research">Research</a>
-    <a href="../index.html#/education">Education</a>
-    <a href="../index.html#/certifications">Certifications</a>
     <span id="ink"></span>
   </div>
 </nav>
@@ -40,16 +40,16 @@
   <p class="meta"><b>Tools &amp; skills:</b></p>
   <ul class="tags"><li>Automation</li><li>Google Apps Script</li><li>Google Sheets</li><li>Gemini API</li></ul>
 
-  <div class="gallery" id="gallery" aria-label="SEAT screenshots">
+  <div class="gallery slider" id="gallery" aria-label="SEAT screenshots">
     <div class="gallery-track">
-      <img src="../assets/img/seat-1.png" alt="SEAT screenshot 1">
-      <img src="../assets/img/seat-2.png" alt="SEAT screenshot 2" loading="lazy">
-      <img src="../assets/img/seat-3.png" alt="SEAT screenshot 3" loading="lazy">
-      <img src="../assets/img/seat-4.png" alt="SEAT screenshot 4" loading="lazy">
-      <img src="../assets/img/seat-5.png" alt="SEAT screenshot 5" loading="lazy">
+      <img src="../assets/img/seat/seat-1.png" alt="SEAT screenshot 1">
+      <img src="../assets/img/seat/seat-2.png" alt="SEAT screenshot 2" loading="lazy">
+      <img src="../assets/img/seat/seat-3.png" alt="SEAT screenshot 3" loading="lazy">
+      <img src="../assets/img/seat/seat-4.png" alt="SEAT screenshot 4" loading="lazy">
+      <img src="../assets/img/seat/seat-5.png" alt="SEAT screenshot 5" loading="lazy">
     </div>
-    <button class="gallery-btn prev" type="button" aria-label="Previous photo">&#8249;</button>
-    <button class="gallery-btn next" type="button" aria-label="Next photo">&#8250;</button>
+    <button class="gallery-btn prev" data-dir="-1" type="button" aria-label="Previous photo">&#8249;</button>
+    <button class="gallery-btn next" data-dir="1" type="button" aria-label="Next photo">&#8250;</button>
   </div>
 
   <h3 class="s">About</h3>
@@ -84,7 +84,7 @@
         <li><b>Store &amp; Access:</b> Generated spreadsheets are automatically saved to a centralized Google Drive folder, making the results accessible for future reference.</li>
       </ol>
       <p class="tagline">In short, AI extracts. Humans verify. The system calculates and generates.</p>
-      <figure><img src="../assets/img/activity-diagram.png" alt="SEAT activity diagram" loading="lazy"><figcaption>Activity diagram</figcaption></figure>
+      <figure><img src="../assets/img/seat/activity-diagram.png" alt="SEAT activity diagram" loading="lazy"><figcaption>Activity diagram</figcaption></figure>
     </div>
   </details>
 
@@ -99,7 +99,7 @@
         <li>Identified repetitive tasks and potential automation opportunities.</li>
         <li>Defined system requirements and user use cases.</li>
       </ul>
-      <figure><img src="../assets/img/use-case-diagram.png" alt="SEAT use case diagram" loading="lazy"><figcaption>Use case diagram</figcaption></figure>
+      <figure><img src="../assets/img/seat/use-case-diagram.png" alt="SEAT use case diagram" loading="lazy"><figcaption>Use case diagram</figcaption></figure>
 
       <h4>2. Core Functionality Development</h4>
       <ul>
@@ -179,9 +179,7 @@
 </main>
 
 <script>
-const g=document.querySelector('#gallery .gallery-track');
-document.querySelector('#gallery .prev').onclick=()=>g.scrollBy({left:-g.clientWidth});
-document.querySelector('#gallery .next').onclick=()=>g.scrollBy({left:g.clientWidth});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-dir]');if(!b)return;const t=b.closest('.slider').querySelector('.gallery-track');t.scrollBy({left:b.dataset.dir*t.clientWidth})});
 function ink(){
   const a=document.querySelector('.links a.on'),i=document.getElementById('ink');
   i.style.width=a.offsetWidth+'px';i.style.transform='translateX('+a.offsetLeft+'px)';i.style.opacity=1;
