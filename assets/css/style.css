@@ -118,17 +118,20 @@ details[open] summary .pills{display:none}
 
 .gallery{margin:1.8rem 0}
 
-/* header: one full image per slide, clean, square corners, no border, no fade */
+/* header: clean, square, soft shadow */
 .gallery-track img{
-  flex:0 0 100%;
-  width:100%;
-  height:auto;
-  display:block;
-  border:0;
-  border-radius:0;
-  scroll-snap-align:start;
-  cursor:zoom-in;
+  flex:0 0 100%;width:100%;height:auto;display:block;
+  border:0;border-radius:0;
+  box-shadow:0 14px 34px -16px rgba(23,49,59,.35);
+  scroll-snap-align:start;cursor:zoom-in;
 }
+.slider .gallery-track{padding:8px 0 18px;margin:-8px 0 -18px}
+@media(min-width:1100px){
+  .gallery>.gallery-btn.prev{left:-3.2rem}
+  .gallery>.gallery-btn.next{right:-3.2rem}
+}
+.wrap p.meta{hyphens:none;-webkit-hyphens:none}
+.meta .v{font-size:.85em}
 
 /* header slide buttons: arrow only, no circle (Home slider keeps its round buttons) */
 .gallery>.gallery-btn{
