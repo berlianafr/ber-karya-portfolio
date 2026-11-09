@@ -11,10 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@400;500;600&family=Courier+Prime&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=9">
+<link rel="stylesheet" href="../assets/css/style.css?v=10">
 <style>
 /* guard: headings are never bold, even if an old cached style.css is served */
-h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
+h1,h2,h4{font-weight:300!important}.brand{font-weight:400!important}
+h3.s{font-weight:600!important}
+details.dd>summary{font-weight:300!important}
 
 /* UML: both diagrams same size */
 .uml-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:16px 0}
@@ -82,8 +84,9 @@ h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
   <h3 class="s">About</h3>
   <p>SEAT is an automation tool designed to calculate seat allocation for political parties using the Sainte-Laguë method and identify elected candidates directly from election results documented in <a href="https://jatim.kpu.go.id/page/read/rekapitulasi-hasil-penghitungan-perolehan-suara-pemilu-tahun-2024-tingkat-provinsi-jawa-timur" target="_blank" rel="noopener">Formulir D Hasil</a>. The tool integrates AI-powered data extraction, human verification, and automated calculations into a single workflow, reducing repetitive manual work and minimizing the need to switch between different tools while keeping the results verifiable.</p>
 
-  <h3 class="s">The Journey</h3>
-  <p class="tldr"><b>tl;dr:</b> Identified three manual bottlenecks: vote-count transcription, Sainte-Laguë seat allocation, and elected-candidate identification. After workflow analysis and three rounds of self-testing, I developed an automated workflow using Gemini API for vote extraction and Google Sheets for validation, seat allocation, and candidate selection. Results are consolidated by district and saved to a centralized Google Drive folder.</p>
+  <h3 class="s">The Journey from Concept to Completion</h3>
+  <p class="tldr"><b>TL;DR:</b> Identified manual bottlenecks in the seat allocation and electoral candidate selection workflow, developed an automated solution, and iteratively refined it through testing and user feedback, including AI-powered vote extraction and usability improvements.</p>
+
   <details class="dd">
     <summary>What’s the Problem?</summary>
     <div class="dd-body">
@@ -212,6 +215,10 @@ h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
         <li>Added English/Indonesian language selection.</li>
         <li>Refined the layout, section organization, and button labels.</li>
       </ul>
+      <div class="shots">
+        <figure><img src="../assets/img/seat/landing-en.png" alt="Landing page in English" loading="lazy"><figcaption>English</figcaption></figure>
+        <figure><img src="../assets/img/seat/landing-id.png" alt="Landing page in Indonesian" loading="lazy"><figcaption>Indonesian</figcaption></figure>
+      </div>
 
       <h4>6. Final Refinement</h4>
       <ul>
