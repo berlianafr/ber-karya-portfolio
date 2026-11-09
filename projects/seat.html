@@ -11,8 +11,54 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=6">
-<style>/* guard: headings are never bold, even if an old cached style.css is served */h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}</style>
+<link rel="stylesheet" href="../assets/css/style.css?v=7">
+<style>
+/* guard: headings are never bold, even if an old cached style.css is served */
+h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
+
+/* meta: plain text, not gray */
+.meta,.meta b{color:inherit!important;opacity:1!important}
+.meta b{font-weight:600}
+
+/* header gallery: bordered, rounded, zoomable */
+.gallery-track img{
+  border-radius:16px;
+  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
+  cursor:zoom-in;
+}
+
+/* shared zoomable look */
+.zoomable{cursor:zoom-in}
+
+/* UML: both diagrams same size */
+.uml-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:16px 0}
+.uml-grid figure{margin:0}
+.uml-grid img{
+  width:100%;aspect-ratio:4/3;object-fit:contain;display:block;
+  border-radius:14px;
+  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
+  background:#fff;cursor:zoom-in;
+}
+.uml-grid figcaption{margin-top:8px;font-size:.9rem;text-align:center}
+
+/* process screenshots inside steps */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:10px 0 18px}
+.shots figure{margin:0}
+.shots img{
+  width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block;
+  border-radius:12px;
+  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
+  cursor:zoom-in;
+}
+.shots figcaption{margin-top:6px;font-size:.85rem;text-align:center}
+.note{font-size:.9rem;font-style:italic}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;
+  background:rgba(10,10,10,.82);padding:24px;cursor:zoom-out}
+#lb.open{display:flex}
+#lb img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.5);background:#fff}
+</style>
 </head>
 <body>
 <div class="bg"><i></i><i></i><i></i></div>
@@ -36,27 +82,13 @@
 
   <h2>SEAT: From Votes to Elected Legislators, Automated.</h2>
   <p class="meta"><b>Project name:</b> SEAT (Seat Allocation &amp; Electoral Candidate Selection)</p>
-  <p class="meta"><b>Project type:</b></p>
-  <ul class="tags"><li>Personal</li><li>Solo</li></ul>
-  <p class="meta"><b>Tools &amp; skills:</b></p>
-  <ul class="tags"><li>Automation</li><li>Google Apps Script</li><li>Google Sheets</li><li>Gemini API</li></ul>
+  <p class="meta"><b>Project type:</b> Personal</p>
+  <p class="meta"><b>Tools &amp; skills:</b> Google Sheets · Google Apps Script · Workflow Automation · LLM API Integration · Requirements Analysis</p>
 
   <div class="gallery slider" id="gallery" aria-label="SEAT screenshots">
     <div class="gallery-track">
-      <img src="../assets/img/seat/seat-1.png" alt="SEAT screenshot 1">
-      <img src="../assets/img/seat/seat-2.png" alt="SEAT screenshot 2" loading="lazy">
-      <img src="../assets/img/seat/seat-3.png" alt="SEAT screenshot 3" loading="lazy">
-      <img src="../assets/img/seat/seat-4.png" alt="SEAT screenshot 4" loading="lazy">
-      <img src="../assets/img/seat/seat-5.png" alt="SEAT screenshot 5" loading="lazy">
-      <img src="../assets/img/seat/seat-6.png" alt="SEAT screenshot 6" loading="lazy">
-      <img src="../assets/img/seat/seat-7.png" alt="SEAT screenshot 7" loading="lazy">
-      <img src="../assets/img/seat/seat-8.png" alt="SEAT screenshot 8" loading="lazy">
-      <img src="../assets/img/seat/seat-9.png" alt="SEAT screenshot 9" loading="lazy">
-      <img src="../assets/img/seat/seat-10.png" alt="SEAT screenshot 10" loading="lazy">
-      <img src="../assets/img/seat/seat-11.png" alt="SEAT screenshot 11" loading="lazy">
-      <img src="../assets/img/seat/seat-12.png" alt="SEAT screenshot 12" loading="lazy">
-      <img src="../assets/img/seat/seat-13.png" alt="SEAT screenshot 13" loading="lazy">
-      <img src="../assets/img/seat/seat-14.png" alt="SEAT screenshot 14" loading="lazy">
+      <img src="../assets/img/seat/header-1.png" alt="SEAT screenshot 1">
+      <img src="../assets/img/seat/header-2.png" alt="SEAT screenshot 2" loading="lazy">
     </div>
     <button class="gallery-btn prev" data-dir="-1" type="button" aria-label="Previous photo">&#8249;</button>
     <button class="gallery-btn next" data-dir="1" type="button" aria-label="Next photo">&#8250;</button>
@@ -86,15 +118,50 @@
     <div class="dd-body">
       <p>SEAT integrates AI-powered data extraction, human verification, and automated electoral calculations into a single workflow using Google Apps Script, Gemini API, Google Sheets, and Google Drive. Google-based tools are used because they are familiar to users and already integrated into their existing work processes.</p>
       <ol>
-        <li><b>Upload:</b> Users upload one or multiple Formulir D Hasil PDF documents. When multiple files are uploaded, SEAT automatically queues them and processes up to two PDFs concurrently.</li>
-        <li><b>Extract:</b> The Gemini API extracts vote counts from each PDF document. If extraction fails, users can retry the process or enter the vote counts manually.</li>
-        <li><b>Validate &amp; Verify:</b> SEAT performs system-level validation on the extracted data and displays warnings when inconsistencies are detected. Users then review and verify the data or manually input the vote counts when necessary.</li>
-        <li><b>Calculate:</b> Once verified, users can save and proceed with the data for each electoral district. Google Apps Script generates a spreadsheet containing four sheets with predefined formulas, while Google Sheets handles the seat allocation calculations using the Sainte-Laguë method and identifies elected candidates based on their vote counts.</li>
-        <li><b>Generate District Recap:</b> After processing individual electoral districts, users can optionally combine the results into a district recap. SEAT generates a consolidated spreadsheet, and Google Sheets calculates the combined results.</li>
+        <li><b>Upload:</b> Users upload one or multiple Formulir D Hasil PDF documents. When multiple files are uploaded, SEAT automatically queues them and processes up to two PDFs concurrently.
+          <div class="shots">
+            <figure><img src="../assets/img/seat/landing-en.png" alt="Landing page (English)" loading="lazy"><figcaption>Landing page (EN)</figcaption></figure>
+            <figure><img src="../assets/img/seat/uploaded-pdfs.png" alt="Uploaded PDFs on the landing page" loading="lazy"><figcaption>Uploaded PDFs</figcaption></figure>
+          </div>
+        </li>
+        <li><b>Extract:</b> The Gemini API extracts vote counts from each PDF document. If extraction fails, users can retry the process or enter the vote counts manually.
+          <div class="shots">
+            <figure><img src="../assets/img/seat/queue.png" alt="Queue page" loading="lazy"><figcaption>Queue page</figcaption></figure>
+          </div>
+        </li>
+        <li><b>Validate &amp; Verify:</b> SEAT performs system-level validation on the extracted data and displays warnings when inconsistencies are detected. Users then review and verify the data or manually input the vote counts when necessary.
+          <div class="shots">
+            <figure><img src="../assets/img/seat/verification.png" alt="Verification page" loading="lazy"><figcaption>Verification page. Red indicates errors flagged by warnings on the Queue page.</figcaption></figure>
+          </div>
+        </li>
+        <li><b>Calculate:</b> Once verified, users can save and proceed with the data for each electoral district. Google Apps Script generates a spreadsheet containing four sheets with predefined formulas, while Google Sheets handles the seat allocation calculations using the Sainte-Laguë method and identifies elected candidates based on their vote counts.
+          <div class="shots">
+            <figure><img src="../assets/img/seat/sheet-1.png" alt="Generated sheet 1" loading="lazy"><figcaption>Generated sheet 1</figcaption></figure>
+            <figure><img src="../assets/img/seat/sheet-2.png" alt="Generated sheet 2" loading="lazy"><figcaption>Generated sheet 2</figcaption></figure>
+            <figure><img src="../assets/img/seat/sheet-3.png" alt="Generated sheet 3" loading="lazy"><figcaption>Generated sheet 3</figcaption></figure>
+          </div>
+        </li>
+        <li><b>Generate District Recap:</b> After processing individual electoral districts, users can optionally combine the results into a district recap. SEAT generates a consolidated spreadsheet, and Google Sheets calculates the combined results.
+          <div class="shots">
+            <figure><img src="../assets/img/seat/queue-recap.png" alt="Queue page with recap button" loading="lazy"><figcaption>Recap button on the Queue page</figcaption></figure>
+            <figure><img src="../assets/img/seat/recap-1.png" alt="Recap sheet 1" loading="lazy"><figcaption>Recap sheet 1</figcaption></figure>
+            <figure><img src="../assets/img/seat/recap-2.png" alt="Recap sheet 2" loading="lazy"><figcaption>Recap sheet 2</figcaption></figure>
+          </div>
+        </li>
         <li><b>Store &amp; Access:</b> Generated spreadsheets are automatically saved to a centralized Google Drive folder, making the results accessible for future reference.</li>
       </ol>
       <p class="tagline">In short, AI extracts. Humans verify. The system calculates and generates.</p>
-      <figure><img src="../assets/img/seat/activity-diagram.png" alt="SEAT activity diagram" loading="lazy"><figcaption>Activity diagram</figcaption></figure>
+    </div>
+  </details>
+
+  <details class="dd">
+    <summary>UML Modelling</summary>
+    <div class="dd-body">
+      <p>Two UML diagrams document how SEAT is used and how the workflow runs end to end. Click a diagram to enlarge it.</p>
+      <div class="uml-grid">
+        <figure><img src="../assets/img/seat/use-case-diagram.png" alt="SEAT use case diagram" loading="lazy"><figcaption>Use case diagram</figcaption></figure>
+        <figure><img src="../assets/img/seat/activity-diagram.png" alt="SEAT activity diagram" loading="lazy"><figcaption>Activity diagram</figcaption></figure>
+      </div>
     </div>
   </details>
 
@@ -107,9 +174,8 @@
       <ul>
         <li>Studied the existing seat allocation and electoral candidate selection workflow.</li>
         <li>Identified repetitive tasks and potential automation opportunities.</li>
-        <li>Defined system requirements and user use cases.</li>
+        <li>Defined system requirements and user use cases (see UML Modelling).</li>
       </ul>
-      <figure><img src="../assets/img/seat/use-case-diagram.png" alt="SEAT use case diagram" loading="lazy"><figcaption>Use case diagram</figcaption></figure>
 
       <h4>2. Core Functionality Development</h4>
       <ul>
@@ -160,6 +226,10 @@
         <li>Added English/Indonesian language selection.</li>
         <li>Refined the layout, section organization, and button labels.</li>
       </ul>
+      <div class="shots">
+        <figure><img src="../assets/img/seat/landing-en.png" alt="Landing page in English" loading="lazy"><figcaption>English</figcaption></figure>
+        <figure><img src="../assets/img/seat/landing-id.png" alt="Landing page in Indonesian" loading="lazy"><figcaption>Indonesian</figcaption></figure>
+      </div>
 
       <h4>6. Final Refinement</h4>
       <ul>
@@ -180,13 +250,19 @@
     </div>
   </details>
 
-  <h3 class="s">Video</h3>
-  <div class="video">
-    <!-- Ganti dengan: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="SEAT demo" allowfullscreen></iframe> -->
-    <span>Video coming soon</span>
-  </div>
+  <details class="dd">
+    <summary>Video</summary>
+    <div class="dd-body">
+      <div class="video">
+        <!-- Ganti dengan: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="SEAT demo" allowfullscreen></iframe> -->
+        <span>Video coming soon</span>
+      </div>
+    </div>
+  </details>
 </div></section>
 </main>
+
+<div id="lb" role="dialog" aria-label="Image preview"><img alt=""></div>
 
 <script>
 /* sliders: arrows, touch swipe, trackpad, and mouse drag */
@@ -198,8 +274,23 @@ document.querySelectorAll('.gallery-track').forEach(t=>{let d=null,moved=false;
   t.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
   t.addEventListener('dragstart',e=>e.preventDefault());
 });
+
+/* click-to-zoom lightbox: header gallery, UML diagrams, process screenshots */
+(function(){
+  const lb=document.getElementById('lb'),big=lb.querySelector('img');
+  const close=()=>{lb.classList.remove('open');big.removeAttribute('src')};
+  document.addEventListener('click',e=>{
+    const img=e.target.closest('.gallery-track img, .uml-grid img, .shots img');
+    if(!img)return;
+    big.src=img.currentSrc||img.src;big.alt=img.alt;lb.classList.add('open');
+  });
+  lb.addEventListener('click',close);
+  addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+})();
+
 function ink(){
   const a=document.querySelector('.links a.on'),i=document.getElementById('ink');
+  if(!a)return;
   i.style.width=a.offsetWidth+'px';i.style.transform='translateX('+a.offsetLeft+'px)';i.style.opacity=1;
   a.scrollIntoView({inline:'center',block:'nearest'});
 }
