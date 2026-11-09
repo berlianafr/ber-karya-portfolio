@@ -108,30 +108,37 @@ details[open] summary .pills{display:none}
 
 /* Project pages (projects/*.html) */
 /* meta: plain text (not gray), tight spacing, value after ":" in typewriter font */
-.wrap p.meta{margin:0 0 .2rem;color:var(--ink);font-size:.95rem;line-height:1.5;text-align:left}
+.wrap p.meta{margin:0 0 .2rem;color:var(--ink);font-size:.95rem;line-height:1.5;text-align:left;hyphens:none;-webkit-hyphens:none}
 .meta b{font-weight:600}
-.meta .v{font-family:"Courier Prime","Courier New",Courier,monospace;font-style:normal;font-size:.92em}
+.meta .v{font-family:"Courier Prime","Courier New",Courier,monospace;font-style:normal;font-size:.82em}
 .meta + .gallery{margin-top:1.25rem}
 
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
 .tags li{font-size:.8rem;margin:0;padding:.15rem .75rem;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.55)}
 
-.gallery{margin:1.8rem 0}
+/* header: wider than the text column so the screenshot reads larger; centered on the column */
+.gallery{
+  margin:1.8rem 0;
+  width:min(78rem,calc(100vw - 4rem));
+  position:relative;left:50%;transform:translateX(-50%);
+}
+@media(max-width:639px){.gallery{width:100%}}
 
-/* header: clean, square, soft shadow */
-.gallery-track img{
-  flex:0 0 100%;width:100%;height:auto;display:block;
-  border:0;border-radius:0;
+/* each slide is a clipping frame: crops the white margin baked into the screenshot, square corners, soft shadow */
+.hero{
+  flex:0 0 100%;
+  overflow:hidden;
+  scroll-snap-align:start;
   box-shadow:0 14px 34px -16px rgba(23,49,59,.35);
-  scroll-snap-align:start;cursor:zoom-in;
 }
-.slider .gallery-track{padding:8px 0 18px;margin:-8px 0 -18px}
-@media(min-width:1100px){
-  .gallery>.gallery-btn.prev{left:-3.2rem}
-  .gallery>.gallery-btn.next{right:-3.2rem}
+.hero img{
+  display:block;
+  width:106.4%;max-width:none;height:auto;
+  margin-left:-3.2%;   /* set width:100% and margin-left:0 once the PNG itself is cropped */
+  border:0;border-radius:0;
+  cursor:zoom-in;
 }
-.wrap p.meta{hyphens:none;-webkit-hyphens:none}
-.meta .v{font-size:.85em}
+.gallery.slider .gallery-track{padding:8px 0 18px;margin:-8px 0 -18px}
 
 /* header slide buttons: arrow only, no circle (Home slider keeps its round buttons) */
 .gallery>.gallery-btn{
