@@ -150,7 +150,7 @@ details[open] summary .pills{display:none}
 .gallery>.gallery-btn.next{right:.4rem}
 
 .tldr{margin:1rem 0 1.8rem;padding:.9rem 1.1rem;border-left:3px solid var(--tide);background:rgba(255,255,255,.55);border-radius:0 14px 14px 0}
-details.dd>summary{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:1.2rem}
+details.dd>summary{font-family:Fraunces,Georgia,serif;font-weight:300;font-size:1.2rem}
 details.dd>summary::after{content:"+";width:auto;height:auto;border:0;transform:none;font-family:Figtree,sans-serif;font-size:1.5rem;font-weight:300;line-height:1}
 details.dd[open]>summary::after{content:"\2212";transform:none}
 .dd-body{padding:0 0 1.2rem}
