@@ -7,28 +7,14 @@
 <meta name="description" content="SEAT automates seat allocation with the Sainte-Laguë method and elected candidate identification from Formulir D Hasil, using Google Apps Script, Google Sheets, and the Gemini API.">
 <meta property="og:title" content="SEAT: From Votes to Elected Legislators, Automated.">
 <meta property="og:description" content="AI extracts. Humans verify. The system calculates and generates.">
-<meta property="og:image" content="../assets/img/seat/seat-1.png">
+<meta property="og:image" content="../assets/img/seat/header-1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=7">
+<link rel="stylesheet" href="../assets/css/style.css?v=8">
 <style>
 /* guard: headings are never bold, even if an old cached style.css is served */
 h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
-
-/* meta: plain text, not gray */
-.meta,.meta b{color:inherit!important;opacity:1!important}
-.meta b{font-weight:600}
-
-/* header gallery: bordered, rounded, zoomable */
-.gallery-track img{
-  border-radius:16px;
-  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
-  cursor:zoom-in;
-}
-
-/* shared zoomable look */
-.zoomable{cursor:zoom-in}
 
 /* UML: both diagrams same size */
 .uml-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:16px 0}
@@ -51,7 +37,6 @@ h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
   cursor:zoom-in;
 }
 .shots figcaption{margin-top:6px;font-size:.85rem;text-align:center}
-.note{font-size:.9rem;font-style:italic}
 
 /* lightbox */
 #lb{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;
@@ -84,6 +69,7 @@ h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
   <p class="meta"><b>Project name:</b> <span class="v">SEAT (Seat Allocation &amp; Electoral Candidate Selection)</span></p>
   <p class="meta"><b>Project type:</b> <span class="v">Personal</span></p>
   <p class="meta"><b>Tools &amp; skills:</b> <span class="v">Google Sheets · Google Apps Script · Workflow Automation · LLM API Integration · Requirements Analysis</span></p>
+
   <div class="gallery slider" id="gallery" aria-label="SEAT screenshots">
     <div class="gallery-track">
       <img src="../assets/img/seat/header-1.png" alt="SEAT screenshot 1">
@@ -227,6 +213,10 @@ h1,h2,h3,h4{font-weight:300!important}.brand{font-weight:400!important}
         <li>Added English/Indonesian language selection.</li>
         <li>Refined the layout, section organization, and button labels.</li>
       </ul>
+      <div class="shots">
+        <figure><img src="../assets/img/seat/landing-en.png" alt="Landing page in English" loading="lazy"><figcaption>English</figcaption></figure>
+        <figure><img src="../assets/img/seat/landing-id.png" alt="Landing page in Indonesian" loading="lazy"><figcaption>Indonesian</figcaption></figure>
+      </div>
 
       <h4>6. Final Refinement</h4>
       <ul>
