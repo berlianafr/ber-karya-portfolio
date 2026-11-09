@@ -112,8 +112,11 @@ details[open] summary .pills{display:none}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
 .tags li{font-size:.8rem;margin:0;padding:.15rem .75rem;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.55)}
 .gallery{margin:1.8rem 0}
-.gallery-track>img{flex:0 0 100%;width:100%;scroll-snap-align:center;object-fit:contain;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.55)}
-.gallery>.gallery-btn{position:absolute;top:50%;transform:translateY(-50%)}
+.gallery-track img{
+  border-radius:16px;
+  border:1px solid color-mix(in srgb,currentColor 18%,transparent);
+  cursor:zoom-in;
+}.gallery>.gallery-btn{position:absolute;top:50%;transform:translateY(-50%)}
 .gallery>.gallery-btn.prev{left:.6rem}
 .gallery>.gallery-btn.next{right:.6rem}
 .tldr{margin:1rem 0 1.8rem;padding:.9rem 1.1rem;border-left:3px solid var(--tide);background:rgba(255,255,255,.55);border-radius:0 14px 14px 0}
